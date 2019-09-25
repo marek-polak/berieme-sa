@@ -28,7 +28,7 @@ footer h1 {
 }
 
 .animation {
-  height: 100vh;
+  height: 70vh;
   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
   position: relative;
   overflow: hidden;
@@ -47,7 +47,7 @@ footer h1 {
   height: 6.5rem;
   background-color: magenta;
   opacity: 0;
-  top: 50%;
+  top: 70%;
   left: -6.5rem;
 }
 
@@ -57,7 +57,7 @@ footer h1 {
   height: 6.5rem;
   background-color: skyblue;
   opacity: 0;
-  top: 50%;
+  top: 70%;
   right: 6.5rem;
 }
 
@@ -79,6 +79,31 @@ footer h1 {
 
 .church-wrapper{
   height: 40rem;
+}
+
+.tree {
+  position: absolute;
+  width: 10rem;
+  height: 14rem;
+  top: -14rem;
+
+}
+
+.tree-left {
+  position: absolute;
+  width: 6rem;
+  height: 9rem;
+  top: -9rem;
+  left: 20vw;
+}
+
+
+.tree-right {
+  position: absolute;
+  width: 6rem;
+  height: 9rem;
+  top: -9rem;
+  right: 5vw;
 }
 
 @media screen and (max-width: 800px) {
