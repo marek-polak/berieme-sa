@@ -52,9 +52,9 @@ const scrollInAnim = new TimelineMax()
         ])
         .add([
           TweenMax.to('.sun', 4, {rotation:360, repeat: 4, repeatDelay: randomDelay(1,4)}),
-          TweenMax.to('.tree-left', 2, { y: (window.innerHeight/3)+20, ease: Elastic.easeInOut}),
-          TweenMax.to('.tree-upper-left', 2, { y: (window.innerHeight/3), ease: Elastic.easeInOut}),
-          TweenMax.to('.tree-right', 2, { y: (window.innerHeight/3), ease: Elastic.easeInOut}),
+          TweenMax.to('.tree-left', 2, { y: (window.innerHeight/1.7), ease: Elastic.easeInOut}),
+          TweenMax.to('.tree-upper-left', 2, { y: (window.innerHeight/1.7), ease: Elastic.easeInOut}),
+          TweenMax.to('.tree-right', 2, { y: (window.innerHeight/1.9)+30, ease: Elastic.easeInOut}),
           TweenMax.fromTo('.church-wrapper', 2, {css:{rotationX:90, z:-10}}, {css:{rotationX:-90, z:-10}, ease:Power2.easeOut})
         ])
         
