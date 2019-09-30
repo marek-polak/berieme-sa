@@ -47,9 +47,14 @@ const randomDelay = (minimum, maximum) => {
 const scrollInAnim = new TimelineMax()
         .add([
             TweenMax.to('.bride', 4, { x: (window.innerWidth/2), autoAlpha: 1 }),
-            TweenMax.to('.groom', 4, { x: (-window.innerWidth/2)+209, autoAlpha: 1 }),
+            TweenMax.to('.groom', 4, { x: (-window.innerWidth/2), autoAlpha: 1 }),
             TweenMax.to('.sun', 4, { y: (window.innerHeight/6), ease: Elastic.easeInOut})
         ])
+        .add(TweenMax.to('#fig1', 4, { alpha : 1 }))
+        .add(TweenMax.to('#fig2', 4, { alpha : 1 }))
+        .add(TweenMax.to('#fig3', 4, { alpha : 1 }))
+        .add(TweenMax.to('#fig4', 4, { alpha : 1 }))
+        .add(TweenMax.to('#fig5', 4, { alpha : 1 }))
         .add([
           TweenMax.to('.sun', 4, {rotation:360, repeat: 4, repeatDelay: randomDelay(1,4)}),
           TweenMax.to('.tree-left', 2, { y: (window.innerHeight/1.7), ease: Elastic.easeInOut}),
@@ -58,6 +63,7 @@ const scrollInAnim = new TimelineMax()
           //TweenMax.to('.church-wrapper', 2, { y: (window.innerHeight/1.9)+30, ease: Elastic.easeInOut})
           //TweenMax.fromTo('.church-wrapper', 2, {css:{rotationX:90, z:-10}}, {css:{rotationX:-90, z:-10}, ease:Power2.easeOut})
         ])
+        
         
         ;
 
