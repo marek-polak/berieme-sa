@@ -77,6 +77,10 @@ footer h1 {
   right: -10vw;
 }
 
+.newlyweds, .bride, .groom {
+  z-index: 1000;
+}
+
 .newlyweds {
   position: absolute;
   width: 100vw;
@@ -128,40 +132,45 @@ footer h1 {
 }
 
 .church {
-  position: absolute;
-  width: auto;
   height: 20vw;
-  bottom: 20vw;
-  right: 8vw;
 }
 
 .church-wrapper{
-  height: 40rem;
+  perspective: 800;
+  transform-style: preserve-3d;
+  perspective-origin: bottom;
+  width: 20vw;
+  position: absolute;
+  bottom: 17vw;
+  right: 13vw;
 }
 
 .tree {
   position: absolute;
   width: 15vw;
   height: 20vw;
-  top: -20vw;
-
+  z-index: 10;
 }
 
 .tree-left {
-  position: absolute;
-  width: 15vw;
-  height: 15vw;
-  top: -15vw;
-  left: 20vw;
+  width: auto;
+  height: 23vw;
+  bottom: 10vw;
+  left: 6vw;
 }
 
+.tree-upper-left {
+  width: auto;
+  height: 13vw;
+  bottom: 24vw;
+  left: -2vw;
+}
 
 .tree-right {
-  position: absolute;
   width: 8vw;
   height: 11vw;
-  top: -11vw;
-  right: 3vw;
+  bottom: 17vw;
+  right: 1vw;
 }
 
 .shake-horizontal {

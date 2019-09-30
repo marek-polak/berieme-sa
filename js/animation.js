@@ -46,24 +46,28 @@ const randomDelay = (minimum, maximum) => {
 
 const scrollInAnim = new TimelineMax()
         .add([
-            TweenMax.to('.bride', 4, { x: (window.innerWidth/2), autoAlpha: 1 }),
-            TweenMax.to('.groom', 4, { x: (-window.innerWidth/2), autoAlpha: 1 }),
+            TweenMax.to('.bride', 1.2, { alpha: 1 }),
+            TweenMax.to('.groom', 1.2, { alpha: 1 }),
+            TweenMax.to('.bride', 4, { x: (window.innerWidth/2)}),
+            TweenMax.to('.groom', 4, { x: (-window.innerWidth/2)}),
             TweenMax.to('.sun', 4, { y: (window.innerHeight/6), ease: Elastic.easeInOut})
         ])
+
+
+        // switching images
         .to('.newlyweds', 1, {rotationY:180}, '+=3') 
         .fromTo('#fig1', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0 }).to('#fig1', 1, {rotationY:180}, '+=3')
         .fromTo('#fig2', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig2', 1, {rotationY:180}, '+=3')
         .fromTo('#fig3', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig3', 1, {rotationY:180}, '+=3')
         .fromTo('#fig4', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig4', 1, {rotationY:180}, '+=3')
         .fromTo('#fig5', 0.3, {alpha: 1, rotationY:-180},  { rotationY:0})
-        //.to('#fig4', 4, { alpha : 1 }).to('#fig4', 1, {rotationY:180}, '+=1')
-        //.to('#fig5', 4, { alpha : 1 })
         
+        // trees
         .add([
           TweenMax.to('.sun', 4, {rotation:360, repeat: 4, repeatDelay: randomDelay(1,4)}),
-          TweenMax.to('.tree-left', 2, { y: (window.innerHeight/1.7), ease: Elastic.easeInOut}),
-          TweenMax.to('.tree-upper-left', 2, { y: (window.innerHeight/1.7), ease: Elastic.easeInOut}),
-          TweenMax.to('.tree-right', 2, { y: (window.innerHeight/1.9)+30, ease: Elastic.easeInOut}),
+          TweenMax.from('.tree-left', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
+          TweenMax.from('.tree-upper-left', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
+          TweenMax.from('.tree-right', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
           //TweenMax.to('.church-wrapper', 2, { y: (window.innerHeight/1.9)+30, ease: Elastic.easeInOut})
           //TweenMax.fromTo('.church-wrapper', 2, {css:{rotationX:90, z:-10}}, {css:{rotationX:-90, z:-10}, ease:Power2.easeOut})
         ])
