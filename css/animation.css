@@ -91,28 +91,28 @@ footer h1 {
 .bride {
   position: absolute;
   width: auto;
-  height: 10vw;
+  height: 19vw;
   opacity: 0;
-  bottom: 10vh;
-  left: -5vw;
+  bottom: 4vh;
+  left: -9vw;
 }
 
 .groom {
   position: absolute;
   width: auto;
-  height: 10vw;
+  height: 19vw;
   opacity: 0;
-  bottom: 10vh;
-  right: -5vw;
+  bottom: 4vh;
+  right: -8vw;
 }
 
 .fig {
-  height: 23vw;
+  height: 40vw;
   width: auto;
   opacity: 0;
   position: absolute;
-  left: 42vw;
-  bottom: 3vh;
+  left: 36vw;
+  bottom: -7vh;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
