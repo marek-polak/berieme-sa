@@ -77,6 +77,17 @@ footer h1 {
   right: -10vw;
 }
 
+.newlyweds {
+  position: absolute;
+  width: 100vw;
+  /* height: 20vh; */
+  bottom: 0vh;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
+
 .bride {
   position: absolute;
   width: auto;
@@ -102,6 +113,10 @@ footer h1 {
   position: absolute;
   left: 42vw;
   bottom: 3vh;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }
 
 .sun {

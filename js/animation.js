@@ -50,11 +50,15 @@ const scrollInAnim = new TimelineMax()
             TweenMax.to('.groom', 4, { x: (-window.innerWidth/2), autoAlpha: 1 }),
             TweenMax.to('.sun', 4, { y: (window.innerHeight/6), ease: Elastic.easeInOut})
         ])
-        .add(TweenMax.to('#fig1', 4, { alpha : 1 }))
-        .add(TweenMax.to('#fig2', 4, { alpha : 1 }))
-        .add(TweenMax.to('#fig3', 4, { alpha : 1 }))
-        .add(TweenMax.to('#fig4', 4, { alpha : 1 }))
-        .add(TweenMax.to('#fig5', 4, { alpha : 1 }))
+        .to('.newlyweds', 1, {rotationY:180}, '+=3') 
+        .fromTo('#fig1', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0 }).to('#fig1', 1, {rotationY:180}, '+=3')
+        .fromTo('#fig2', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig2', 1, {rotationY:180}, '+=3')
+        .fromTo('#fig3', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig3', 1, {rotationY:180}, '+=3')
+        .fromTo('#fig4', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig4', 1, {rotationY:180}, '+=3')
+        .fromTo('#fig5', 0.3, {alpha: 1, rotationY:-180},  { rotationY:0})
+        //.to('#fig4', 4, { alpha : 1 }).to('#fig4', 1, {rotationY:180}, '+=1')
+        //.to('#fig5', 4, { alpha : 1 })
+        
         .add([
           TweenMax.to('.sun', 4, {rotation:360, repeat: 4, repeatDelay: randomDelay(1,4)}),
           TweenMax.to('.tree-left', 2, { y: (window.innerHeight/1.7), ease: Elastic.easeInOut}),
