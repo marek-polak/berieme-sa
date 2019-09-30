@@ -121,6 +121,7 @@ footer h1 {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
+  z-index: 10000;
 }
 
 .sun {
@@ -136,13 +137,11 @@ footer h1 {
 }
 
 .church-wrapper{
-  perspective: 800;
-  transform-style: preserve-3d;
-  perspective-origin: bottom;
   width: 20vw;
   position: absolute;
   bottom: 17vw;
-  right: 13vw;
+  right: 11vw;
+  z-index: 100;
 }
 
 .tree {
@@ -171,6 +170,18 @@ footer h1 {
   height: 11vw;
   bottom: 17vw;
   right: 1vw;
+}
+
+.path-wrapper{
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  left: 32vw;
+}
+
+.path{
+  width: 48vw;
+  height: auto;
 }
 
 .shake-horizontal {

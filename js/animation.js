@@ -1,39 +1,21 @@
 /*jshint esversion: 6 */
 (function() {
-// const flightPath = {
-//   curviness: 1.5,
-//   autoRotate: true,
-//   values: [
-//     {x: (window.innerWidth/8), y: -20},
-//     {x: (window.innerWidth/8)*2, y:10},
-//     {x: (window.innerWidth/8)*3, y: 100},
-//     {x: (window.innerWidth/8)*4, y: -100},
-//     {x: (window.innerWidth/8)*3, y: -50},
-//     {x: (window.innerWidth/8)*5, y: 100},
-//     {x: (window.innerWidth/8)*7, y: 0},
-//     {x: window.innerWidth + 150, y: 100}
-//   ]
-// };
 
-// const tween = new TimelineLite();
+  const controller = new ScrollMagic.Controller();
 
-// tween.add(
-//   TweenLite.to('.paper-plane' , 3, {
-//     bezier: flightPath,
-//     ease: Power1.easeInOut
-//   })
-// );
 
- const controller = new ScrollMagic.Controller();
-// const scenePlane = new ScrollMagic.Scene({
-//   triggerElement: '.animation',
-//   duration: 4500,
-//   triggerHook: 0
-// })
-// .setTween(tween)
-// .addIndicators()
-// .setPin('.animation')
-// .addTo(controller);
+function pathPrepare ($el) {
+  var lineLength = $el[0].getTotalLength();
+  $el.css("stroke-dasharray", lineLength);
+  $el.css("stroke-dashoffset", lineLength);
+  $el.css("fill-opacity", 0);
+}
+
+var $line = $("path#path63");
+
+// prepare SVG
+pathPrepare($line);
+
 
 
 // ========================
@@ -41,7 +23,11 @@ const randomDelay = (minimum, maximum) => {
   return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
 };
 
-//TweenLite.set(trans3DBoxes, {css:{transformPerspective:400, transformStyle:"preserve-3d"}}).to;
+
+
+ const sunTween = new TimelineLite()
+  .to('.sun', 4, {rotation:360, repeat: -1, repeatDelay: randomDelay(0.1,2)});
+
 
 
 const scrollInAnim = new TimelineMax()
@@ -61,16 +47,22 @@ const scrollInAnim = new TimelineMax()
         .fromTo('#fig3', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig3', 1, {rotationY:180}, '+=3')
         .fromTo('#fig4', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig4', 1, {rotationY:180}, '+=3')
         .fromTo('#fig5', 0.3, {alpha: 1, rotationY:-180},  { rotationY:0})
+
+      
+        .set('.church-wrapper', {css:{transformPerspective:200, perspectiveOrigin:'50% 100%', transformStyle:"preserve-3d"}})
         
         // trees
         .add([
-          TweenMax.to('.sun', 4, {rotation:360, repeat: 4, repeatDelay: randomDelay(1,4)}),
+          //TweenMax.to('.sun', 4, {rotation:360, repeat: 4, repeatDelay: randomDelay(1,4)}),
           TweenMax.from('.tree-left', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
           TweenMax.from('.tree-upper-left', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
           TweenMax.from('.tree-right', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
-          //TweenMax.to('.church-wrapper', 2, { y: (window.innerHeight/1.9)+30, ease: Elastic.easeInOut})
-          //TweenMax.fromTo('.church-wrapper', 2, {css:{rotationX:90, z:-10}}, {css:{rotationX:-90, z:-10}, ease:Power2.easeOut})
-        ])
+          TweenMax.from('.church-wrapper', 2, {css:{rotationX:-90, z:100}, ease:Power2.easeOut}),
+          TweenMax.to($line, 3, {strokeDashoffset: 0, ease:Linear.easeNone})
+        ]).to($line, 3, {fillOpacity: 1})
+
+
+        
         
         
         ;
