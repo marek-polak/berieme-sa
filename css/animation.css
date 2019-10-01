@@ -175,6 +175,14 @@ footer h1 {
   height: auto;
 }
 
+.ribbon{
+  z-index: 10;
+  position: absolute;
+  width: 40%;
+  height: auto;
+}
+
+
 .shake-horizontal {
 	-webkit-animation: shake-horizontal 16s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
 	        animation: shake-horizontal 16s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite both;
