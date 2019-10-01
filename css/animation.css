@@ -127,7 +127,6 @@ footer h1 {
   width: 20vw;
   max-width: 6.5rem;
   height: auto;
-  top: -20vw;
   left: 30%;
 }
 
@@ -176,7 +175,7 @@ footer h1 {
 }
 
 .ribbon{
-  z-index: 10;
+  z-index: 10000;
   position: absolute;
   width: 40%;
   height: auto;
