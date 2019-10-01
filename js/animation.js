@@ -13,10 +13,18 @@ function pathPrepare ($el) {
 
 
 var $container = $('.animation');
+
+// svg strokes
 var $line = $("path#path63");
+var $background_1 = $("path#svg_2");
+var $background_2 = $("path#svg_4");
+var $background_3 = $("path#svg_3");
 
 // prepare SVG
 pathPrepare($line);
+pathPrepare($background_1);
+pathPrepare($background_2);
+pathPrepare($background_3);
 
 
 
@@ -37,15 +45,21 @@ const randomDelay = (minimum, maximum) => {
 const scrollInAnim = new TimelineMax()
         //initial setup
         .set('.church-wrapper', {css:{transformPerspective:200, perspectiveOrigin:'50% 100%', transformStyle:"preserve-3d"}})
-        .set('.sun', {top: -$('.sun').height()})
+        .set('.sun', {top: -$('.sun').height(), visibility: 'visible'})
         .set('.fig', {left: (($container.width()/2) - ($('.fig').width()/2)), bottom: -($container.height()*0.10)})
         .set('.path-wrapper', {width: $path_width ,left: (($container.width()/2) - ($path_width/3)), bottom: 0})
         .set('.church-wrapper', {bottom: ($container.width()/6)})
         .set('.tree-right', {bottom: ($container.width()/7)})
         .set('.tree-left', {bottom: ($container.width()/7)})
         .set('.tree-upper-left', {bottom: ($container.width()/4)})
-        .set('.ribbon', {width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/2.3), alpha:0})
-        
+        .set('.ribbon', {visibility: 'visible', width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/2.3), alpha:0})
+
+        //background comes to life
+        .add([
+          TweenMax.to($background_1, 4, {fillOpacity: 1}),
+          TweenMax.to($background_2, 3, {fillOpacity: 1}),
+          TweenMax.to($background_3, 0.6, {fillOpacity: 1}),
+        ])
 
         // groom meets bride
         .add([

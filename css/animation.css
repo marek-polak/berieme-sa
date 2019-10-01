@@ -40,6 +40,8 @@ footer h1 {
 .background {
   position: absolute;
   bottom: 0;
+  width: 100%;
+  height: auto;
 }
 
 
@@ -128,6 +130,7 @@ footer h1 {
   max-width: 6.5rem;
   height: auto;
   left: 30%;
+  visibility: hidden;
 }
 
 .church {
@@ -179,6 +182,7 @@ footer h1 {
   position: absolute;
   width: 40%;
   height: auto;
+  visibility: hidden;
 }
 
 
