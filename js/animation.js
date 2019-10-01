@@ -11,6 +11,8 @@ function pathPrepare ($el) {
   $el.css("fill-opacity", 0);
 }
 
+
+var $container = $('.animation');
 var $line = $("path#path63");
 
 // prepare SVG
@@ -34,9 +36,9 @@ const scrollInAnim = new TimelineMax()
         .add([
             TweenMax.to('.bride', 1.2, { alpha: 1 }),
             TweenMax.to('.groom', 1.2, { alpha: 1 }),
-            TweenMax.to('.bride', 4, { x: (window.innerWidth/2)}),
-            TweenMax.to('.groom', 4, { x: (-window.innerWidth/2)}),
-            TweenMax.to('.sun', 4, { y: (window.innerHeight/6), ease: Elastic.easeInOut})
+            TweenMax.to('.bride', 4, { x: ($container.width()/2)}),
+            TweenMax.to('.groom', 4, { x: -($container.width()/2)}),
+            TweenMax.to('.sun', 4, { y: ($container.height()/6), ease: Elastic.easeInOut})
         ])
 
 
