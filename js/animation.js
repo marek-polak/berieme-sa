@@ -39,7 +39,7 @@ const randomDelay = (minimum, maximum) => {
   .to('.sun', 4, {rotation:360, repeat: -1, repeatDelay: randomDelay(0.1,2)});
 
  var $path_width = $container.width()*0.44;
- var $ribbon_width = $container.width()*0.6;
+ var $ribbon_width = $('.ribbon').width();
 
 
 const scrollInAnim = new TimelineMax()
@@ -52,7 +52,7 @@ const scrollInAnim = new TimelineMax()
         .set('.tree-right', {bottom: ($container.width()/7)})
         .set('.tree-left', {bottom: ($container.width()/7)})
         .set('.tree-upper-left', {bottom: ($container.width()/4)})
-        .set('.ribbon', {visibility: 'visible', width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/2.3), alpha:0})
+        .set('.ribbon', {visibility: 'visible', width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/2.18), alpha:0})
 
         //background comes to life
         .add([
@@ -102,6 +102,12 @@ const sceneBride = new ScrollMagic.Scene({
 .setPin('.animation')
 .addIndicators({name: "1 - add a class"}) // add indicators (requires plugin)
 .addTo(controller);
+
+// scene save-the-date
+/* var scene = new ScrollMagic.Scene({triggerElement: ".save-the-date", duration: 300})
+.setPin("#fig5-sdd")
+.addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
+.addTo(controller); */
 
 
 }());

@@ -180,7 +180,8 @@ footer h1 {
 .ribbon{
   z-index: 10000;
   position: absolute;
-  width: 40%;
+  width: 70%;
+  max-width: 510px;
   height: auto;
   visibility: hidden;
 }
