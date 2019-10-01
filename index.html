@@ -1,116 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <!-- Place favicon.ico in the root directory -->
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/animation.css" />
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/animation.css">
+    <meta name="theme-color" content="#fafafa" />
+  </head>
 
-  <meta name="theme-color" content="#fafafa">
-</head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
 
-<body>
-  <!--[if IE]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
+    <!-- Add your site or application content here -->
+    <header>
+      <h1>Vitajte!</h1>
+      <h2>Toto je náš príbeh.</h2>
+      <p>pokračujte prosím nižšie.</p>
+      <div class="icon-scroll"></div>
+    </header>
 
-  <!-- Add your site or application content here -->
-  <header>
-    <h1>Scroll Animation</h1>
-  </header>
-
-  <section class="animation">
-    <div class="background">
+    <section class="animation">
+      <div class="background">
         <svg viewBox="0 0 580 400">
           <g>
-            <path stroke="null" id="svg_2" d="m-1.00003,181.147003c7.79319,2.041 12.82163,-13.959 24.36993,-11.320999c11.548302,2.638 10.283199,21.914001 21.827599,26.923996c5.772202,2.505997 23.913403,-11.472 32.272503,-1.358994c8.3591,10.113998 11.602699,26.319 18.246002,28.523987c6.642998,2.20401 13.352997,-7.758987 32.311996,-7.480988c18.957993,0.278 36.832001,20.796997 44.468994,21.963989c30.55101,4.667007 37.737,-4.082993 61.973999,-8.666992c24.236008,-4.584 36.189011,8.998993 60.272995,8.998993c24.084015,0 48.505005,-22.707993 69.59201,-18.748993c21.088013,3.959 37.509003,24.584991 61.59201,24.584991c12.041992,0 30.499664,-22.307968 42.413666,-25.659958c5.958008,-1.67601 14.77832,-1.280029 22.34433,3.01297c7.565002,4.293991 13.874695,13.150696 20.14267,11.061691c6.266968,-2.088989 13.950989,-15.706741 19.450989,-18.90274c5.501038,-3.197006 12.818115,5.361084 18.353088,2.289093c5.534973,-3.072006 9.955627,-21.106461 16.327637,-22.82045c6.372009,-1.715012 12.028625,6.890396 20.039612,7.765396l-6.994995,114.521011l-578.010187,0c0,-37.923004 0,-75.846008 0,-113.769012z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" fill="#79af8a"/>
-            <path stroke="null" id="svg_4" d="m-0.000034,223.813995c44.188129,-14.585999 84.396831,38.582001 145.497028,47.916992c61.101013,9.335022 103.41301,-13.667999 151.580002,-13.667999c48.167999,0 84.351013,15.835999 132.518005,15.835999c48.167999,0 92.319977,-36.92099 156.404999,-29.919983l-6.994995,114.520996l-578.010187,0l0,-113.769012z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" fill="#80b66b"/>
-            <path stroke="null" id="svg_3" d="m-2.000019,282.984375c44.645256,-14.898041 85.269909,-6.555298 147.00217,2.979401c61.733093,9.534729 82.255219,-4.767853 130.920486,-4.767853c48.66629,0 94.316711,13.110596 142.981995,13.110596c48.66629,0 100.347382,-24.432739 165.095367,-17.281952l-1.005249,125.14209l-583.989625,0l0,-116.202881z" stroke-opacity="null" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" fill-opacity="null" fill="#5da364"/>
-          </g>
-          </svg>
-    </div>
-    <img class="cloud cloud-1 shake-horizontal" src="./img/cloud.svg"/>
-    <img class="cloud cloud-2 shake-horizontal-reverse" src="./img/cloud.svg"/>
-    <img class="cloud cloud-flipped cloud-3 shake-horizontal" src="./img/cloud.svg"/>
-    <img class="cloud cloud-flipped cloud-4 shake-horizontal-reverse" src="./img/cloud.svg"/>
-    <div class="newlyweds">
-        <img class="bride" src="./img/bride_1.svg"/>
-        <img class="groom" src="./img/man_1.svg"/>
-    </div>
-    
-    <img id="fig1" class="fig" src="./img/fig1.svg"/>
-    <img id="fig2" class="fig" src="./img/fig2.svg"/>
-    <img id="fig3" class="fig" src="./img/fig3.svg"/>
-    <img id="fig4" class="fig" src="./img/fig4.svg"/>
-    <img id="fig5" class="fig" src="./img/fig5.svg"/>
-    <img src="./img/sun2.png" class="sun" alt="yellow shining sun" />
-
-    
-    <div class="church-wrapper">
-      <img src="./img/church_vector-edit.svg" class="church" alt="christian church" />
-    </div>
-
-    <img src="./img/tree2.svg" class="tree tree-right" alt="tree" />
-    <img src="./img/tree1.svg" class="tree tree-left" alt="tree" />
-    <img src="./img/tree3.svg" class="tree tree-upper-left" alt="tree" />
-    
-    <div class="path-wrapper">
-        <!-- <img src="./img/path.svg" class="path" /> -->
-        <svg id='line' class="path" viewBox="0 0 177 85.5">
-          <g transform="translate(-126.65607,-151.47452)" inkscape:label="Layer 2" id="layer2" >
-            <path  id="path63" d="m 127.943,237.07737 c -1.40597,-13.68165 4.02056,-23.68339 13.7156,-29.96436 30.95666,-18.98068 45.52896,-24.60123 80.26649,-29.18664 5.26187,-0.72984 12.53192,-1.19255 17.8069,-1.43518 11.28565,-0.90674 16.16823,2.51945 24.06448,1.67684 1.80561,-0.13836 6.49126,-0.49653 10.35562,-1.96294 2.72392,-1.03364 5.4666,-3.47694 6.65804,-4.18318 12.95621,-9.76496 14.66607,-18.88202 14.66607,-18.88202 13.06925,-4.5762 7.71075,5.43163 8.87623,6.96394 -11.85738,12.77105 -9.69967,9.24454 -24.39192,22.05625 -12.00375,9.12896 -24.73826,1.74012 -45.04869,5.31609 -20.34601,3.60318 -21.40018,17.67495 -15.75092,22.64268 28.8074,22.74789 28.6258,16.53503 39.21485,26.84853 v 0" style="fill:#fae6d3;fill-opacity:1;stroke:#464037;stroke-width:1.665;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"/>
+            <path
+              stroke="null"
+              id="svg_2"
+              d="m-1.00003,181.147003c7.79319,2.041 12.82163,-13.959 24.36993,-11.320999c11.548302,2.638 10.283199,21.914001 21.827599,26.923996c5.772202,2.505997 23.913403,-11.472 32.272503,-1.358994c8.3591,10.113998 11.602699,26.319 18.246002,28.523987c6.642998,2.20401 13.352997,-7.758987 32.311996,-7.480988c18.957993,0.278 36.832001,20.796997 44.468994,21.963989c30.55101,4.667007 37.737,-4.082993 61.973999,-8.666992c24.236008,-4.584 36.189011,8.998993 60.272995,8.998993c24.084015,0 48.505005,-22.707993 69.59201,-18.748993c21.088013,3.959 37.509003,24.584991 61.59201,24.584991c12.041992,0 30.499664,-22.307968 42.413666,-25.659958c5.958008,-1.67601 14.77832,-1.280029 22.34433,3.01297c7.565002,4.293991 13.874695,13.150696 20.14267,11.061691c6.266968,-2.088989 13.950989,-15.706741 19.450989,-18.90274c5.501038,-3.197006 12.818115,5.361084 18.353088,2.289093c5.534973,-3.072006 9.955627,-21.106461 16.327637,-22.82045c6.372009,-1.715012 12.028625,6.890396 20.039612,7.765396l-6.994995,114.521011l-578.010187,0c0,-37.923004 0,-75.846008 0,-113.769012z"
+              stroke-opacity="null"
+              stroke-linecap="null"
+              stroke-linejoin="null"
+              stroke-width="0"
+              fill="#79af8a"
+            />
+            <path
+              stroke="null"
+              id="svg_4"
+              d="m-0.000034,223.813995c44.188129,-14.585999 84.396831,38.582001 145.497028,47.916992c61.101013,9.335022 103.41301,-13.667999 151.580002,-13.667999c48.167999,0 84.351013,15.835999 132.518005,15.835999c48.167999,0 92.319977,-36.92099 156.404999,-29.919983l-6.994995,114.520996l-578.010187,0l0,-113.769012z"
+              stroke-opacity="null"
+              stroke-linecap="null"
+              stroke-linejoin="null"
+              stroke-width="0"
+              fill="#80b66b"
+            />
+            <path
+              stroke="null"
+              id="svg_3"
+              d="m-2.000019,282.984375c44.645256,-14.898041 85.269909,-6.555298 147.00217,2.979401c61.733093,9.534729 82.255219,-4.767853 130.920486,-4.767853c48.66629,0 94.316711,13.110596 142.981995,13.110596c48.66629,0 100.347382,-24.432739 165.095367,-17.281952l-1.005249,125.14209l-583.989625,0l0,-116.202881z"
+              stroke-opacity="null"
+              stroke-linecap="null"
+              stroke-linejoin="null"
+              stroke-width="0"
+              fill-opacity="null"
+              fill="#5da364"
+            />
           </g>
         </svg>
-    </div>
+      </div>
+      <img class="cloud cloud-1 shake-horizontal" src="./img/cloud.svg" />
+      <img
+        class="cloud cloud-2 shake-horizontal-reverse"
+        src="./img/cloud.svg"
+      />
+      <img
+        class="cloud cloud-flipped cloud-3 shake-horizontal"
+        src="./img/cloud.svg"
+      />
+      <img
+        class="cloud cloud-flipped cloud-4 shake-horizontal-reverse"
+        src="./img/cloud.svg"
+      />
+      <div class="newlyweds">
+        <img class="bride" src="./img/bride_1.svg" />
+        <img class="groom" src="./img/man_1.svg" />
+      </div>
 
-    <img src="./img/ribbon.svg" class="ribbon" alt="ribbon" />
+      <img id="fig1" class="fig" src="./img/fig1.svg" />
+      <img id="fig2" class="fig" src="./img/fig2.svg" />
+      <img id="fig3" class="fig" src="./img/fig3.svg" />
+      <img id="fig4" class="fig" src="./img/fig4.svg" />
+      <img id="fig5" class="fig" src="./img/fig5.svg" />
+      <img src="./img/sun2.png" class="sun" alt="yellow shining sun" />
 
-  </section>
+      <div class="church-wrapper">
+        <img
+          src="./img/church_vector-edit.svg"
+          class="church"
+          alt="christian church"
+        />
+      </div>
 
+      <img src="./img/tree2.svg" class="tree tree-right" alt="tree" />
+      <img src="./img/tree1.svg" class="tree tree-left" alt="tree" />
+      <img src="./img/tree3.svg" class="tree tree-upper-left" alt="tree" />
 
-  <footer>
-    <h1>Did you have a nice trip?</h1>
-  </footer>
-  
+      <div class="path-wrapper">
+        <!-- <img src="./img/path.svg" class="path" /> -->
+        <svg id="line" class="path" viewBox="0 0 177 85.5">
+          <g
+            transform="translate(-126.65607,-151.47452)"
+            inkscape:label="Layer 2"
+            id="layer2"
+          >
+            <path
+              id="path63"
+              d="m 127.943,237.07737 c -1.40597,-13.68165 4.02056,-23.68339 13.7156,-29.96436 30.95666,-18.98068 45.52896,-24.60123 80.26649,-29.18664 5.26187,-0.72984 12.53192,-1.19255 17.8069,-1.43518 11.28565,-0.90674 16.16823,2.51945 24.06448,1.67684 1.80561,-0.13836 6.49126,-0.49653 10.35562,-1.96294 2.72392,-1.03364 5.4666,-3.47694 6.65804,-4.18318 12.95621,-9.76496 14.66607,-18.88202 14.66607,-18.88202 13.06925,-4.5762 7.71075,5.43163 8.87623,6.96394 -11.85738,12.77105 -9.69967,9.24454 -24.39192,22.05625 -12.00375,9.12896 -24.73826,1.74012 -45.04869,5.31609 -20.34601,3.60318 -21.40018,17.67495 -15.75092,22.64268 28.8074,22.74789 28.6258,16.53503 39.21485,26.84853 v 0"
+              style="fill:#fae6d3;fill-opacity:1;stroke:#464037;stroke-width:1.665;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+            />
+          </g>
+        </svg>
+      </div>
 
-  <!-- licensed images used -->
-  <a href="https://www.freepik.com/free-photos-vectors/love">Love vector created by freepik - www.freepik.com</a>
-  <a href='https://pngtree.com/so/sun clipart'>sun clipart png from pngtree.com</a>
-  <a href='https://pngtree.com/so/hand painted trees'>hand painted trees png from pngtree.com</a>
-  <a href='https://pngtree.com/so/cartoon tree'>cartoon tree png from pngtree.com</a>
-  <a href='https://pngtree.com/so/banner'>banner png from pngtree.com</a>
+      <img src="./img/ribbon.svg" class="ribbon" alt="ribbon" />
+    </section>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineLite.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/BezierPlugin.min.js"></script>
+    <footer>
+      <h1>Did you have a nice trip?</h1>
+    </footer>
 
-  <script src="js/vendor/modernizr-3.7.1.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/animation.js"></script>
-  
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
+    <!-- licensed images used -->
+    <a href="https://www.freepik.com/free-photos-vectors/love"
+      >Love vector created by freepik - www.freepik.com</a
+    >
+    <a href="https://pngtree.com/so/sun clipart"
+      >sun clipart png from pngtree.com</a
+    >
+    <a href="https://pngtree.com/so/hand painted trees"
+      >hand painted trees png from pngtree.com</a
+    >
+    <a href="https://pngtree.com/so/cartoon tree"
+      >cartoon tree png from pngtree.com</a
+    >
+    <a href="https://pngtree.com/so/banner">banner png from pngtree.com</a>
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/BezierPlugin.min.js"></script>
+
+    <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="js/vendor/jquery-3.4.1.min.js"><\/script>'
+        );
+    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/animation.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      window.ga = function() {
+        ga.q.push(arguments);
+      };
+      ga.q = [];
+      ga.l = +new Date();
+      ga("create", "UA-XXXXX-Y", "auto");
+      ga("set", "transport", "beacon");
+      ga("send", "pageview");
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+  </body>
 </html>
