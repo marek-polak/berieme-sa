@@ -30,20 +30,32 @@ const randomDelay = (minimum, maximum) => {
  const sunTween = new TimelineLite()
   .to('.sun', 4, {rotation:360, repeat: -1, repeatDelay: randomDelay(0.1,2)});
 
+ var $path_width = $container.width()*0.44;
 
 
 const scrollInAnim = new TimelineMax()
+        //initial setup
+        .set('.fig', {left: (($container.width()/2) - ($('.fig').width()/2)), bottom: -($container.height()*0.10)})
+        .set('.path-wrapper', {width: $path_width ,left: (($container.width()/2) - ($path_width/3)), bottom: 0})
+        .set('.church-wrapper', {bottom: ($container.width()/6)})
+        .set('.tree-right', {bottom: ($container.width()/7)})
+        .set('.tree-left', {bottom: ($container.width()/7)})
+        .set('.tree-upper-left', {bottom: ($container.width()/4)})
+        
+
+
         .add([
             TweenMax.to('.bride', 1.2, { alpha: 1 }),
             TweenMax.to('.groom', 1.2, { alpha: 1 }),
             TweenMax.to('.bride', 4, { x: ($container.width()/2)}),
             TweenMax.to('.groom', 4, { x: -($container.width()/2)}),
-            TweenMax.to('.sun', 4, { y: ($container.height()/6), ease: Elastic.easeInOut})
+            TweenMax.to('.sun', 4, { y: ($container.width()/3), ease: Elastic.easeInOut})
         ])
 
 
         // switching images
-        .to('.newlyweds', 1, {rotationY:180}, '+=3') 
+        //..to('.newlyweds', 1, {rotationY:180}, '+=3') 
+        
         .fromTo('#fig1', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0 }).to('#fig1', 1, {rotationY:180}, '+=3')
         .fromTo('#fig2', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig2', 1, {rotationY:180}, '+=3')
         .fromTo('#fig3', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig3', 1, {rotationY:180}, '+=3')

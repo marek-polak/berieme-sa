@@ -32,6 +32,9 @@ footer h1 {
   background-image: linear-gradient(to top, #30cfd0 0%, rgb(168, 236, 232) 80%);
   position: relative;
   overflow: hidden;
+  width: 90vw;
+  max-width: 900px;
+  margin: auto;
 }
 
 .background {
@@ -39,16 +42,10 @@ footer h1 {
   bottom: 0;
 }
 
-.paper-plane {
-  position: absolute;
-  width: 6.5rem;
-  top: 50%;
-  left: -6.5rem;
-}
 
 .cloud {
-  width: 15vw;
-  height: 5vw;
+  width: 15%;
+  height: 5%;
   position: relative;
   top: 0;
 }
@@ -58,23 +55,23 @@ footer h1 {
 }
 
 .cloud-1 {
-  top: 6vh;
-  left: 6vw;
+  top: 6%;
+  left: 6%;
 }
 
 .cloud-2 {
-  top: 12vh;
-  left: 0vw;
+  top: 12%;
+  left: 0%;
 }
 
 .cloud-3 {
-  top: 4vh;
-  right: -40vw;
+  top: 4%;
+  right: -40%;
 }
 
 .cloud-4 {
-  top: 10vh;
-  right: -10vw;
+  top: 10%;
+  right: -10%;
 }
 
 .newlyweds, .bride, .groom {
@@ -83,9 +80,10 @@ footer h1 {
 
 .newlyweds {
   position: absolute;
-  width: 100vw;
-  /* height: 20vh; */
-  bottom: 0vh;
+  width: 100%;
+  height: 19vw;
+  max-height: 140px;
+  bottom: 2%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -96,27 +94,27 @@ footer h1 {
   position: absolute;
   width: auto;
   height: 19vw;
+  max-height: 160px;
   opacity: 0;
-  bottom: 4vh;
-  left: -9vw;
+  bottom: 4%;
+  left: -9%;
 }
 
 .groom {
   position: absolute;
   width: auto;
   height: 19vw;
+  max-height: 160px;
   opacity: 0;
-  bottom: 4vh;
-  right: -8vw;
+  bottom: 4%;
+  right: -10%;
 }
 
 .fig {
-  height: 40vw;
+  height: 58%;
   width: auto;
   opacity: 0;
   position: absolute;
-  left: 36vw;
-  bottom: -7vh;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -126,61 +124,54 @@ footer h1 {
 
 .sun {
   position: absolute;
-  width: 6.5rem;
-  height: 6.5rem;
-  top: -6.5rem;
-  left: 30vw;
+  width: 20vw;
+  max-width: 6.5rem;
+  height: auto;
+  top: -20vw;
+  left: 30%;
 }
 
 .church {
-  height: 20vw;
+  height: auto;
 }
 
 .church-wrapper{
-  width: 20vw;
+  width: 20%;
   position: absolute;
-  bottom: 17vw;
-  right: 11vw;
+  left: 71%;
   z-index: 100;
 }
 
 .tree {
   position: absolute;
-  width: 15vw;
-  height: 20vw;
   z-index: 10;
 }
 
 .tree-left {
   width: auto;
-  height: 23vw;
-  bottom: 11vw;
-  left: 8vw;
+  width: 8%;
+  left: 15%;
 }
 
 .tree-upper-left {
   width: auto;
-  height: 13vw;
-  bottom: 24vw;
-  left: -2vw;
+  height: 14%;
+  left: 1%;
 }
 
 .tree-right {
-  width: 8vw;
-  height: 11vw;
-  bottom: 17vw;
-  right: 1vw;
+  width: 5%;
+  height: auto;
+  right: 2%;
 }
 
 .path-wrapper{
   z-index: 1;
   position: absolute;
-  bottom: 0;
-  left: 32vw;
 }
 
 .path{
-  width: 48vw;
+  width: 100%;
   height: auto;
 }
 
@@ -210,7 +201,7 @@ footer h1 {
   }
 
   .fig{
-    bottom: -2vh;
+    bottom: -13%;
   }
 }
 
