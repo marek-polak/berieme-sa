@@ -59,7 +59,7 @@ const scrollInAnim = new TimelineMax()
           TweenMax.from('.tree-right', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
           TweenMax.from('.church-wrapper', 2, {css:{rotationX:-90, z:100}, ease:Power2.easeOut}),
           TweenMax.to($line, 3, {strokeDashoffset: 0, ease:Linear.easeNone})
-        ]).to($line, 3, {fillOpacity: 1})
+        ]).to($line, 3, {fillOpacity: 1}, '+=3')
 
 
         
