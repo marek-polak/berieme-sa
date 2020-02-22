@@ -139,7 +139,7 @@ const sceneBride = new ScrollMagic.Scene({
 
 const sceneInfo = new ScrollMagic.Scene({
   triggerElement: '.basic-info',
-  duration: 3000,
+  duration: 3400,
   offset: 50,
   triggerHook: 0
   
