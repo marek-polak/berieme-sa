@@ -244,6 +244,11 @@ footer h1 {
     background-image: linear-gradient(to top, #30cfd0 0%, rgb(168, 236, 232) 80%);
   }
 
+  .bride, .groom{
+    height: 19vh;
+  }
+
+
   .fig{
     height: 60%;
   }
