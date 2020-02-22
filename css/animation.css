@@ -16,6 +16,7 @@ footer,
   align-items: center;
   font-family: "Montserrat", sans-serif;
   color: #44391a;
+  text-align: center;
 }
 
 header h1 {
@@ -413,4 +414,18 @@ footer h1 {
   background: url("../img/invite-border.png") no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.subsection {
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 35em) {
+  .invite{
+    padding: 5rem;
+  }
+
+  .invite .title{
+    font-size: 1.5rem;
+  }
 }
