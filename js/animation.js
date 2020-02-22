@@ -52,7 +52,7 @@ const scrollInAnim = new TimelineMax()
         .set('.tree-right', {bottom: ($container.width()/7)})
         .set('.tree-left', {bottom: ($container.width()/7)})
         .set('.tree-upper-left', {bottom: ($container.width()/4)})
-        .set('.ribbon', {visibility: 'visible', width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/2.18), alpha:0})
+        .set('.ribbon', {visibility: 'visible', width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/1.9), alpha:0})
 
         //background comes to life
         .add([
@@ -67,7 +67,7 @@ const scrollInAnim = new TimelineMax()
             TweenMax.to('.groom', 1.2, { alpha: 1 }),
             TweenMax.to('.bride', 3, { x: ($container.width()/2-10)}),
             TweenMax.to('.groom', 3, { x: -($container.width()/2-10)}),
-            TweenMax.to('.sun', 4, { y: ($container.height()/4), ease: Elastic.easeInOut})
+            TweenMax.to('.sun', 4, { y: ($('.sun').height()+14), ease: Elastic.easeInOut})
         ])
 
         // switching images
