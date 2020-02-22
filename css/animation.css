@@ -15,12 +15,15 @@ footer,
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  color: #44391a;
 }
 
 header h1 {
   font-size: 4rem;
   font-weight: 700;
-  color: #330867;
+  color: #e1ba43;
+  text-shadow: #655421 1px 1px 0;
+  font-family: 'autumn_in_novemberregular';
 }
 
 footer h1 {
@@ -242,14 +245,14 @@ footer h1 {
   margin-left: -20px;
   top: 80%;
   margin-top: -35px;
-  box-shadow: inset 0 0 0 1px #330867;
+  box-shadow: inset 0 0 0 1px #44391a;
   border-radius: 25px;
 }
 .icon-scroll:before {
   content: '';
   width: 8px;
   height: 8px;
-  background: #330867;
+  background: #44391a;
   margin-left: -4px;
   top: 8px;
   border-radius: 4px;
