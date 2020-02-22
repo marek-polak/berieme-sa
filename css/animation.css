@@ -416,6 +416,10 @@ footer h1 {
   background-position: center;
 }
 
+.basic-info{
+  justify-content: start;
+}
+
 .subsection {
   margin-top: 2rem;
   display: flex;
@@ -449,7 +453,6 @@ footer h1 {
 @media only screen and (max-width: 35em) {
   .invite{
     padding: 5rem;
-    margin-top: 2rem;
   }
 
   .invite .title{
