@@ -65,8 +65,8 @@ const scrollInAnim = new TimelineMax()
         .add([
             TweenMax.to('.bride', 1.2, { alpha: 1 }),
             TweenMax.to('.groom', 1.2, { alpha: 1 }),
-            TweenMax.to('.bride', 3, { x: ($container.width()/2)}),
-            TweenMax.to('.groom', 3, { x: -($container.width()/2)}),
+            TweenMax.to('.bride', 3, { x: ($container.width()/2-10)}),
+            TweenMax.to('.groom', 3, { x: -($container.width()/2-10)}),
             TweenMax.to('.sun', 4, { y: ($container.height()/4), ease: Elastic.easeInOut})
         ])
 

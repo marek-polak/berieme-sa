@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:200,700&display=swap');
 
 * {
-  anim-box-sizing: border-anim-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -37,11 +37,11 @@ footer h1 {
   height: 100vh;
   position: relative;
   overflow: hidden;
+  background-image: linear-gradient(to top, #30cfd0 0%, rgb(168, 236, 232) 80%);
 }
 
 .background {
   position: absolute;
-  background-image: linear-gradient(to top, #30cfd0 0%, rgb(168, 236, 232) 80%);
   bottom: 0;
   width: 100%;
   height: auto;
@@ -218,6 +218,11 @@ footer h1 {
     left: -18%;
   }
 
+  .bride, .groom{
+    height: 25vh;
+    max-height: 180px;
+  }
+
   .fig{
     bottom: -13%;
   }
@@ -230,9 +235,19 @@ footer h1 {
     max-width: 900px;
     margin: auto;
 
+    background-image: none;
     border: 21px solid #e1ba43;
     border-image: url('../img/pink-doily-bdr.png') 35 30 35 30 repeat repeat;
   }
+
+  .background{
+    background-image: linear-gradient(to top, #30cfd0 0%, rgb(168, 236, 232) 80%);
+  }
+
+  .fig{
+    height: 60%;
+  }
+  
 }
 
 
@@ -248,7 +263,7 @@ footer h1 {
   margin-left: -20px;
   top: 80%;
   margin-top: -35px;
-  anim-box-shadow: inset 0 0 0 1px #44391a;
+  box-shadow: inset 0 0 0 1px #44391a;
   border-radius: 25px;
 }
 .icon-scroll:before {
