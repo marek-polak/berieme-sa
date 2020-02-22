@@ -418,6 +418,21 @@ footer h1 {
 
 .subsection {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.subsection p{
+  margin: 0 2rem;
+  font-weight: 500;
+  font-size: larger;
+}
+
+.subsection .time{
+  flex-basis: 56%;
 }
 
 @media only screen and (max-width: 35em) {
@@ -428,4 +443,20 @@ footer h1 {
   .invite .title{
     font-size: 1.5rem;
   }
+
+  .subsection{
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .subsection .time{
+    flex-basis: auto;
+  }
+
+  .subsection p{
+    margin: 0 2rem;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
 }
