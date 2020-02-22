@@ -93,6 +93,24 @@ const scrollInAnim = new TimelineMax()
         
         ;
 
+const basicInfoAnim = new TimelineMax()
+    //initial setup
+    .set('.invite', {alpha: 0})
+    .set('.reveal__title__when', {alpha: 0})
+    .set('.reveal__date', {alpha: 0})
+    .set('.reveal__time', {alpha: 0})
+    .set('.reveal__title__where', {alpha: 0})
+    .set('.reveal__place', {alpha: 0})
+    
+    //make elements visible on scroll
+    .to('.invite', 1.2, { alpha: 1 }, '+=1')
+    .to('.reveal__title__when', 0.6, { alpha: 1 }, '+=1')
+    .to('.reveal__date', 0.8, { alpha: 1 }, '-=0.5')
+    .to('.reveal__time', 0.8, { alpha: 1 }, '-=0.5')
+    .to('.reveal__title__where', 0.6, { alpha: 1 }, '+=1')
+    .to('.reveal__place', 0.8, { alpha: 1 }, '-=0.5')
+    ;
+
 const sceneBride = new ScrollMagic.Scene({
   triggerElement: '.animation',
   duration: 15000,
@@ -108,6 +126,29 @@ const sceneBride = new ScrollMagic.Scene({
 .setPin("#fig5-sdd")
 .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
 .addTo(controller); */
+
+/* ScrollMagic.Scene({
+  triggerElement: revealElements[i], // y value not modified, so we can use element as trigger as well
+  offset: 50,												 // start a little later
+  triggerHook: 0.9,
+})
+.setClassToggle(revealElements[i], "visible") // add class toggle
+.addIndicators({name: "digit " + (i+1) }) // add indicators (requires plugin)
+.addTo(controller); */
+
+
+const sceneInfo = new ScrollMagic.Scene({
+  triggerElement: '.basic-info',
+  duration: 3400,
+  offset: 50,
+  triggerHook: 0
+  
+  //reverse: false
+})
+.setTween(basicInfoAnim) 
+.setPin('.basic-info')
+.addIndicators({name: "1 - basic-info"}) // add indicators (requires plugin)
+.addTo(controller);
 
 
 }());
