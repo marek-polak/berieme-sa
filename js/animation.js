@@ -50,7 +50,7 @@ const scrollInAnim = new TimelineMax()
         .set('.path-wrapper', {width: $path_width ,left: (($container.width()/2) - ($path_width/3)), bottom: 0})
         .set('.church-wrapper', {bottom: ($container.width()/6)})
         .set('.tree-right', {bottom: ($container.width()/7)})
-        .set('.tree-left', {bottom: ($container.width()/7)})
+        .set('.tree-left', {bottom: ($container.width()/9)})
         .set('.tree-upper-left', {bottom: ($container.width()/4)})
         .set('.ribbon', {visibility: 'visible', width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/1.9), alpha:0})
 
