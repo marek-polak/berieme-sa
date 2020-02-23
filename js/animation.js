@@ -126,9 +126,8 @@ const sceneInfo = new ScrollMagic.Scene({
   triggerElement: '.basic-info',
   duration: 3500,
   offset: 0,
-  triggerHook: 0
-  
-  //reverse: false
+  triggerHook: 0,
+  reverse: false
 })
 .setTween(basicInfoAnim) 
 .setPin('.basic-info')
