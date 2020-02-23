@@ -62,21 +62,19 @@ const scrollInAnim = new TimelineMax()
         .set('.reveal__title__where', {alpha: 0})
         .set('.reveal__place', {alpha: 0})
         .set('.fig__baloons', {alpha: 0})
-        
-        //background comes to life
+      
         .add([
-          TweenMax.to($background_1, 4, {fillOpacity: 1}),
-          TweenMax.to($background_2, 3, {fillOpacity: 1}),
-          TweenMax.to($background_3, 0.6, {fillOpacity: 1}),
-        ])
-
-        // groom meets bride
-        .add([
+            //background comes to life
+            TweenMax.to($background_1, 1, {fillOpacity: 1}),
+            TweenMax.to($background_2, 0.8, {fillOpacity: 1}),
+            TweenMax.to($background_3, 0.5, {fillOpacity: 1}),
+            // groom meets bride
             TweenMax.to('.bride', 1.2, { alpha: 1 }),
             TweenMax.to('.groom', 1.2, { alpha: 1 }),
             TweenMax.to('.bride', 3, { x: ($container.width()/2-10)}),
             TweenMax.to('.groom', 3, { x: -($container.width()/2-10)}),
-            TweenMax.to('.sun', 4, { y: ($('.sun').height()+14), ease: Elastic.easeInOut})
+            // sun appear
+            TweenMax.to('.sun', 2.7, { y: ($('.sun').height()+14), ease: Elastic.easeInOut})
         ])
 
         // switching images
@@ -104,7 +102,7 @@ const scrollInAnim = new TimelineMax()
 
 const basicInfoAnim = new TimelineMax()
     //make elements visible on scroll
-    .to('.invite', 1.0, { alpha: 1 }, '+=1')
+    .to('.invite', 1.0, { alpha: 1 })
     .to('.reveal__title__when', 0.6, { alpha: 1 }, '+=0.7')
     .to('.reveal__date', 0.8, { alpha: 1 }, '-=0.5')
     .to('.reveal__time', 0.8, { alpha: 1 }, '-=0.5')
