@@ -118,7 +118,7 @@ const sceneBride = new ScrollMagic.Scene({
 })
 .setTween(scrollInAnim) 
 .setPin('.animation')
-.addIndicators({name: "1 - add a class"}) // add indicators (requires plugin)
+//.addIndicators({name: "1 - add a class"}) // add indicators (requires plugin)
 .addTo(controller);
 
 
@@ -126,12 +126,11 @@ const sceneInfo = new ScrollMagic.Scene({
   triggerElement: '.basic-info',
   duration: 3500,
   offset: 0,
-  triggerHook: 0,
-  reverse: false
+  triggerHook: 0
 })
 .setTween(basicInfoAnim) 
 .setPin('.basic-info')
-.addIndicators({name: "1 - basic-info"}) // add indicators (requires plugin)
+//.addIndicators({name: "1 - basic-info"}) // add indicators (requires plugin)
 .addTo(controller);
 
 
