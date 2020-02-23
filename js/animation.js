@@ -59,7 +59,8 @@ const scrollInAnim = new TimelineMax()
         .set('.reveal__time', {alpha: 0})
         .set('.reveal__title__where', {alpha: 0})
         .set('.reveal__place', {alpha: 0})
-
+        .set('.fig__baloons', {alpha: 0})
+        
         //background comes to life
         .add([
           TweenMax.to($background_1, 4, {fillOpacity: 1}),
@@ -107,6 +108,7 @@ const basicInfoAnim = new TimelineMax()
     .to('.reveal__time', 0.8, { alpha: 1 }, '-=0.5')
     .to('.reveal__title__where', 0.6, { alpha: 1 }, '+=1')
     .to('.reveal__place', 0.8, { alpha: 1 }, '+=0.5')
+    .to('.fig__baloons', 0.8, { alpha: 1 })
     ;
 
 const sceneBride = new ScrollMagic.Scene({

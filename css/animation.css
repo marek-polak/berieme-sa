@@ -450,6 +450,12 @@ footer h1 {
   filter: invert(18%) sepia(55%) saturate(489%) hue-rotate(7deg) brightness(94%) contrast(90%);
 }
 
+.fig__baloons{
+  align-self: flex-end;
+  height: 10rem;
+  padding: 1rem 4rem;
+}
+
 @media only screen and (max-width: 35em) {
   .invite{
     padding: 5rem;
@@ -476,6 +482,10 @@ footer h1 {
 
   .place img {
     height: 18px;
+  }
+
+  .fig__baloons{
+    padding-right: 2rem;
   }
 
 }
