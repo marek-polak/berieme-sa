@@ -462,39 +462,6 @@ footer h1 {
   padding: 1rem 4rem;
 }
 
-@media only screen and (max-width: 35em) {
-  .invite{
-    padding: 5rem;
-  }
-
-  .invite .title{
-    font-size: 1.5rem;
-  }
-
-  .subsection{
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .subsection .time{
-    flex-basis: auto;
-  }
-
-  .subsection p{
-    margin: 0 2rem;
-    font-weight: 400;
-    font-size: 1rem;
-  }
-
-  .place img {
-    height: 18px;
-  }
-
-  .fig__baloons{
-    padding-right: 2rem;
-  }
-
-}
 
 
 .celebrate{
@@ -532,4 +499,60 @@ footer h1 {
     text-align: start;
     font-size: 10px;
     padding-left: 7px;
+}
+
+
+@media only screen and (max-width: 35em) {
+  .invite{
+    padding: 5rem;
+  }
+
+  .invite .title{
+    font-size: 1.5rem;
+  }
+
+  .subsection{
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .subsection .time{
+    flex-basis: auto;
+  }
+
+  .subsection p{
+    margin: 0 2rem;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .place img {
+    height: 18px;
+  }
+
+  .fig__baloons{
+    padding-right: 2rem;
+  }
+
+  .credits{
+    flex-direction: column;
+  }
+
+  .copyright{
+    order:1;
+  }
+
+  .licensed__images{
+    order:3;
+    display: block;
+    margin-top: 10px;
+  }
+  .licensed__images ul{
+    text-align: center;
+  }
+
+  .libraries{
+    order: 2;
+  }
+
 }
