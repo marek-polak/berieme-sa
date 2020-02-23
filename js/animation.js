@@ -52,7 +52,7 @@ const scrollInAnim = new TimelineMax()
         .set('.path-wrapper', {width: $path_width ,left: (($container.width()/2) - ($path_width/3)), bottom: 0})
         .set('.church-wrapper', {bottom: ($container.width()/6)})
         .set('.tree-right', {bottom: ($container.width()/6)})
-        .set('.tree-left', {bottom: ($container.width()/6)})
+        .set('.tree-left', {bottom: ($container.width()/8)})
         .set('.tree-upper-left', {bottom: ($container.width()/4)})
         .set('.ribbon', {visibility: 'visible', width: $ribbon_width, left: (($container.width()/2) - ($ribbon_width/2)), bottom: ($container.height()/1.9), alpha:0})
         .set('.invite', {alpha: 0})
@@ -87,9 +87,9 @@ const scrollInAnim = new TimelineMax()
 
         // trees & church with path
         .add([
-          TweenMax.from('.tree-left', 2, { y: -window.innerHeight-40, ease: Elastic.easeInOut}),
-          TweenMax.from('.tree-upper-left', 2, { y: -window.innerHeight, ease: Elastic.easeInOut}),
-          TweenMax.from('.tree-right', 2, { y: -window.innerHeight-20, ease: Elastic.easeInOut}),
+          TweenMax.from('.tree-left', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
+          TweenMax.from('.tree-upper-left', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
+          TweenMax.from('.tree-right', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
           TweenMax.from('.church-wrapper', 2, {css:{rotationX:-90, z:100}, ease:Power2.easeOut}),
           TweenMax.to($line, 2, {strokeDashoffset: 0, ease:Linear.easeNone})
         ]).to($line, 1, {fillOpacity: 1}, '-=0.5')
@@ -113,7 +113,7 @@ const basicInfoAnim = new TimelineMax()
 
 const sceneBride = new ScrollMagic.Scene({
   triggerElement: '.animation',
-  duration: 15000,
+  duration: 12000,
   triggerHook: 0
 })
 .setTween(scrollInAnim) 
