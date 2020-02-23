@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-(function() {
+initScrollMagic = function() {
 
   const controller = new ScrollMagic.Controller();
 
@@ -13,6 +13,8 @@ function pathPrepare ($el) {
 
 
 var $container = $('.animation');
+
+console.log('I am here baby!');
 
 // svg strokes
 var $line = $("path#path63");
@@ -134,4 +136,12 @@ const sceneInfo = new ScrollMagic.Scene({
 .addTo(controller);
 
 
-}());
+};
+
+$(function() {
+  initScrollMagic();
+});
+
+$( window ).resize(function() {
+  console.log( "resize event catched!" );
+});
