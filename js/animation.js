@@ -14,8 +14,6 @@ function pathPrepare ($el) {
 
 var $container = $('.animation');
 
-console.log('I am here baby!');
-
 // svg strokes
 var $line = $("path#path63");
 var $background_1 = $("path#svg_2");
