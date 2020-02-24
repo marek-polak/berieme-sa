@@ -73,13 +73,20 @@ const scrollInAnim = new TimelineMax()
             TweenMax.to('.groom', 1.2, { alpha: 1 }),
             TweenMax.to('.bride', 3, { x: ($container.width()/2-10)}),
             TweenMax.to('.groom', 3, { x: -($container.width()/2-10)}),
+
+            // hanging__info
+            TweenMax.from('.hanging__info', 1.3, { y: -window.innerHeight-($container.height()/3), ease: Elastic.Power2}),
+            TweenMax.to('#infoNewlyweds', 1, {display: 'block', alpha: 1 }, '+=2'),
             // sun appear
             TweenMax.to('.sun', 2.7, { y: ($('.sun').height()+14), ease: Elastic.easeInOut})
         ])
 
         // switching images
-        .to('.newlyweds', 1, {rotationY:180}, '+=1') 
-        .fromTo('#fig1', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0 }).to('#fig1', 1, {rotationY:180}, '+=2')
+        .to('.newlyweds', 1, {rotationY:180}, '+=1').to('#infoNewlyweds', .3, {alpha:0, display: 'none'}, '-=0.5')
+        .fromTo('#fig1', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0 })
+            .to('#info1', .3, {alpha:1, display: 'block'}, '-=0.5')
+            .to('#fig1', 1, {rotationY:180}, '+=2')
+            .to('#info1', .3, {alpha:0, display: 'none'}, '-=0.5')
         .fromTo('#fig2', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig2', 1, {rotationY:180}, '+=2')
         .fromTo('#fig3', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig3', 1, {rotationY:180}, '+=2')
         .fromTo('#fig4', 0.3, {alpha: 1, rotationY:-180}, { rotationY:0}).to('#fig4', 1, {rotationY:180}, '+=2')
@@ -91,6 +98,7 @@ const scrollInAnim = new TimelineMax()
           TweenMax.from('.tree-upper-left', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
           TweenMax.from('.tree-right', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
           TweenMax.from('.church-wrapper', 2, {css:{rotationX:-90, z:100}, ease:Power2.easeOut}),
+          TweenMax.to('.hanging__info', 1.3, { y: -window.innerHeight-($container.height()/3), ease: Elastic.Power2}),
           TweenMax.to($line, 2, {strokeDashoffset: 0, ease:Linear.easeNone})
         ]).to($line, 1, {fillOpacity: 1}, '-=0.5')
 
