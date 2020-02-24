@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/animation.css" />
     <link rel="stylesheet" href="css/scrollbar.css" />
-    
+
     <meta name="theme-color" content="#fafafa" />
   </head>
 
@@ -94,27 +94,27 @@
         class="cloud cloud-flipped cloud-4 shake-horizontal-reverse"
         src="./img/cloud.svg"
       />
-    
+
       <div class="hanging__info">
         <div class="info__text__wrapper">
           <div id="infoNewlyweds" class="info__text">
-            <p class='info__date'>11.01.2018</p>
+            <p class="info__date">11.01.2018</p>
             <p>Naše prvé rande</p>
           </div>
           <div id="info1" class="info__text">
-            <p class='info__date'>06.05.2018</p>
+            <p class="info__date">06.05.2018</p>
             <p>Spolu dobýjame Tatry</p>
           </div>
           <div id="info2" class="info__text">
-            <p class='info__date'>18.11.2018</p>
+            <p class="info__date">18.11.2018</p>
             <p>Sťahujeme sa pod spoločnú strechu.</p>
           </div>
           <div id="info3" class="info__text">
-            <p class='info__date'>30.08.2018</p>
+            <p class="info__date">30.08.2018</p>
             <p>Marek pok<span>ľ</span>akol</p>
           </div>
           <div id="info4" class="info__text">
-            <p class='info__date'>Janka</p>
+            <p class="info__date">Janka</p>
             <p>povedala ÁÁÁÁNO!</p>
           </div>
         </div>
@@ -195,10 +195,13 @@
     </section>
 
     <footer>
-      <div class="celebrate"><h1>Oslávte to <br />s nami!</h1></div>
+      <div class="celebrate">
+        <h1>Oslávte to <br />s nami!</h1>
+      </div>
       <div class="credits">
         <div class="libraries">
-          Powered by <a href="http://scrollmagic.io/">ScrollMagic</a>, hosted by <a href="https://github.com">GitHub</a>
+          Powered by <a href="http://scrollmagic.io/">ScrollMagic</a>, hosted by
+          <a href="https://github.com">GitHub</a>
         </div>
         <div class="licensed__images">
           <!-- licensed images used -->
@@ -230,10 +233,12 @@
               >
             </li>
             <li>
-              solid wood PNG Designed By 杨浩 from <a href="https://pngtree.com/">Pngtree.com</a>
+              solid wood PNG Designed By 杨浩 from
+              <a href="https://pngtree.com/">Pngtree.com</a>
             </li>
             <li>
-              lovely PNG Designed By hiren86 from <a href="https://pngtree.com/">Pngtree.com</a>
+              lovely PNG Designed By hiren86 from
+              <a href="https://pngtree.com/">Pngtree.com</a>
             </li>
           </ul>
         </div>
@@ -287,17 +292,19 @@
       });
     </script> -->
 
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-158988947-1"
+    ></script>
     <script>
-      window.ga = function() {
-        ga.q.push(arguments);
-      };
-      ga.q = [];
-      ga.l = +new Date();
-      ga("create", "UA-XXXXX-Y", "auto");
-      ga("set", "transport", "beacon");
-      ga("send", "pageview");
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-158988947-1");
     </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
   </body>
 </html>
