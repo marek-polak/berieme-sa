@@ -129,6 +129,7 @@ const basicInfoAnim = new TimelineMax()
     .to('.reveal__title__where', 0.6, { alpha: 1 }, '+=1')
     .to('.reveal__place', 0.8, { alpha: 1 }, '+=0.5')
     .to('.fig__baloons', 0.8, { alpha: 1 })
+    .to('.scroll__container', 0.8, { alpha: 0 }, '-=1.2')
     ;
 
 const sceneBride = new ScrollMagic.Scene({

@@ -206,6 +206,21 @@ footer h1 {
   font-size: 1.3em;
 }
 
+
+.info__scroller{
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  align-self: flex-end;
+  justify-content: flex-end;
+  width: 55%;
+}
+
+.info__scroller .scroll__container{
+  flex-grow: 1;
+  margin: 2em 0 0 0;
+}
+
 .church {
   height: auto;
 }
@@ -464,7 +479,6 @@ footer h1 {
 }
 
 .fig__baloons {
-  align-self: flex-end;
   height: 10rem;
   padding: 1rem 4rem;
 }
@@ -508,8 +522,12 @@ footer h1 {
 }
 
 @media only screen and (max-width: 350px) {
+  .subsection {
+    margin-top: 0.2rem;
+  }
+
   .fig__baloons {
-    height: 7rem;
+    height: 6rem;
   }
 }
 
