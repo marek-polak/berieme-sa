@@ -26,7 +26,7 @@ function detectIE() {
 }
 
 $(function() {
-  if(detectIE() != undefined){
+  if(detectIE() != false){
     $('.browserupgrade').css('display', 'block');
     $('section').css('display', 'none');
     $('footer').css('display', 'none');
