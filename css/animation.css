@@ -319,6 +319,12 @@ footer h1 {
     border-image: url("../img/pink-doily-bdr.png") 35 30 35 30 repeat repeat;
   }
 
+  .hanging__info {
+    width: 42vw;
+    max-width: 400px;
+    height: 33vh;
+  }
+
   .background {
     background-image: linear-gradient(
       to top,
