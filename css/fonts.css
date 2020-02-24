@@ -8,8 +8,8 @@
 
 @font-face {
   font-family: 'adlery_problockletter';
-  src: url('../fonts/adlery-pro-blockletter-trial-webfont.woff2') format('woff2'),
-       url('../fonts/adlery-pro-blockletter-trial-webfont.woff') format('woff');
+  src: url('../fonts/adlery-pro.blockletter-webfont.woff2') format('woff2'),
+       url('../fonts/adlery-pro.blockletter-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
