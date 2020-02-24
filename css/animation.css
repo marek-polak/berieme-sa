@@ -197,11 +197,13 @@ footer h1 {
 }
 
 .hanging__info .info__text {
-  /* position: relative;
-  left: -50%; 
-  position: absolute;
-bottom: 5vw;
-left: 30%;*/
+ font-family: 'adlery_problockletter';
+ font-size: 1.2em;
+}
+
+.info__date{
+  font-family: 'autumn_in_novemberregular';
+  font-size: 1.3em;
 }
 
 .church {
