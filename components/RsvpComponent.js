@@ -86,9 +86,9 @@ class RSVPComponent extends React.Component {
       <Fragment>
         <Title name="Zdenka" />
         <Question 
-          title="Prides?" 
-          desc="Prosim daj nam vediet ci sa zucastnis" 
-          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]}
+          title="Prídeš?" 
+          desc="Prosím daj nám vedieť ci sa zúčastníš." 
+          options={[{text: 'áno', value: true}, {text: 'nie', value:false}]}
           property={'attend'} 
           value={this.state['attend'] || ''}  
           onChange={this.onQuestionChange} 
@@ -96,26 +96,25 @@ class RSVPComponent extends React.Component {
 
         <Question 
           title="S partnerom/-kou?" 
-          desc="Donesies svojho specialneho +1?" 
+          desc="Donesieš svojho špeciálneho +1?" 
           property={'withPartner'} 
-          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
+          options={[{text: 'áno', value: true}, {text: 'nie', value:false}]} 
           value={this.state['withPartner'] || ''}  
           onChange={this.onQuestionChange}
         />
 
         <Question 
           title="Potrebujete ubytovanie?" 
-          desc="V priestore je obmedzeny pocet izieb, dalsie su v pesej dostupnosti. Pokial sa chystate prenocovat, 
-          dajte nam vediet nech vieme rezervovat kapacitu a poslat vam blizsie info (o cenach, dostupnosti, atd.)" 
+          desc="V priestore je obmedzený počet izieb, ďalšie sú v pešej dostupnosti. Pokiaľ sa chystáte prenocovať, dajte nám vedieť nech vieme rezervovať kapacitu a poslať vám bližšie info (o cenách, dostupnosti, atď.)" 
           property={'needsAccomodation'} 
-          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
+          options={[{text: 'áno', value: true}, {text: 'nie', value:false}]} 
           value={this.state['needsAccomodation'] || undefined}  
           onChange={this.onQuestionChange} 
         />
 
         <Question 
-          title="Pocet deti do 2 rokov?" 
-          desc="Potrebujeme vediet kolko detskych stoliciek mame zabezpecit :)" 
+          title="Počet detí do dvoch rokov?" 
+          desc="Potrebujeme vedieť koľko detských stoličiek mame zabezpečiť :)" 
           property={'kids'} 
           options={[0,1,2,3]} 
           type='slider'
@@ -124,8 +123,8 @@ class RSVPComponent extends React.Component {
         />
 
         <Question 
-          title="Dietne poziadavky" 
-          desc="Celiatici, intolerantni na laktozu, alergici na potraviny - dajte nam prosim vediet" 
+          title="Diétne požiadavky" 
+          desc="Celiatici, intolerantní na laktózu, alergici na potraviny - ozvite sa." 
           property={'dietRequirements'} 
           type='text'
           value={this.state['dietRequirements'] || undefined}  
@@ -133,8 +132,8 @@ class RSVPComponent extends React.Component {
         />
 
         <Question 
-          title="Ine poziadavky" 
-          desc="Potrebujete nieco ine/specialne? Prosim, toto pole je pre Vas" 
+          title="Iné?" 
+          desc="Potrebujete niečo iné/špeciálne? Nech sa páči, toto pole je pre Vás." 
           property={'specialNeeds'} 
           type='text'
           value={this.state['specialNeeds'] || undefined}  

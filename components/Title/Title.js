@@ -10,10 +10,10 @@ export const Title = ({ name }) => {
         <h3> Ahoj {name}</h3>
         <div className="info">
           <p>
-            Radi by sme Ťa/Vás pozvali po obrade k stolu. Prosím pomôž nám
-            vyplnením formuláru nižšie - pričom platí “čím skôr, tým lepšie.”
+            Radi by sme Ťa/Vás pozvali po obrade k stolu. Pomôž nám
+            vyplnením formuláru nižšie, “čím skôr, tým lepšie.”
           </p>
-          <p>
+          <p class="small__print">
             Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
             odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
           </p>

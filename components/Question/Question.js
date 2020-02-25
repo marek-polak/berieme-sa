@@ -14,15 +14,19 @@ export const Question = ({ title, desc, options, property, value, onChange, type
 
   return (
     <Fragment>
-      <div >
-        <span className="rsvp__question__title">{title}</span>
-        <span className="rsvp__question__desc">{desc}</span>
+      <div className="rsvp__question">
+        <div className="rsvp__question__wrapper">
+          <span className="rsvp__question__title">{title}</span>
+          <span className="rsvp__question__desc">{desc}</span>
+        </div>
+
+        {type && type==='text' && 
+          <div className="rsvp__question__options">
+            <textarea id={property} rows="4" cols="30" />
+          </div> 
+        }
         
         <div className="rsvp__question__options">
-          <p>
-            You have chosen {value}
-          </p>
-
           {options && options.map((item, index) => 
            <AxaRadioReact
               name={title}

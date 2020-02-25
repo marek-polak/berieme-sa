@@ -1,8 +1,21 @@
 .rsvp__intro{
 
-  flex-grow: 1;
+  flex-grow: 1; 
+  border-bottom: 3px solid #886f29b5;
+  padding-bottom: 0.6em;
+  margin-bottom: 0.4em;
   
   .title{
     padding: 10px;
+    color: #88702a;
+  }
+
+  p {
+    padding: 5px 0px;
+    text-align: justify;
+  }
+
+  .small__print{
+    font-size: 0.9em;
   }
 }
