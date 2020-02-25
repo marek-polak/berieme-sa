@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
+import { Title } from "./Title/Title";
 
 import "./RsvpComponent.scss";
 
@@ -20,26 +21,27 @@ const db = client
         console.error(err)
       }); */
 
-const Title = ({ name }) => {
+
+
+const Question = ({ title, desc, options, value, onChange }) => {
   return (
     <Fragment>
-      <div className="rsvp__intro">
-        <h1 className="rsvp__title"> R.S.V.P.</h1>
-        <h3> Ahoj {name}</h3>
-        <div className="info">
+      <div >
+        <span className="rsvp__question__title">{title}</span>
+        <span className="rsvp__question__desc">{desc}</span>
+        
+        <div className="rsvp__question__options">
           <p>
-            Radi by sme Ťa/Vás pozvali po obrade k stolu. Prosím pomôž nám
-            vyplnením formuláru nižšie - pričom platí “čím skôr, tým lepšie.”
+            You have chosen {value}
           </p>
-          <p>
-            Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
-            odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
-          </p>
+
         </div>
       </div>
     </Fragment>
   );
-};
+}
+
+
 
 class RSVPComponent extends React.Component {
   constructor(props) {
@@ -91,6 +93,13 @@ class RSVPComponent extends React.Component {
     return (
       <Fragment>
         <Title name="Zdenka" />
+        <Question 
+          title="Prides?" 
+          desc="Prosim daj nam vediet ci sa zucastnis" 
+          options={['ano', 'nie']} 
+          value={this.state['attend'] || ''}  
+          onChange={(val) => this.setState({ attend: val})} 
+        />
         <button onClick={() => this.setState({ liked: true })}>
           Likeaaaaa
         </button>
