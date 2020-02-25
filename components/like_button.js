@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 
 // mongo stitch connection 
@@ -16,8 +16,13 @@ const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-at
         console.error(err)
       }); */
 
-const Title = (name) => {
-  return 'TEXT';
+const Title = ({ name }) => {
+  return (
+    <Fragment>
+      <h1> R.S.V.P.</h1>
+      <h3> Ahojky {name}</h3>
+    </Fragment>
+  );
 }
 
 class LikeButton extends React.Component {
@@ -61,9 +66,12 @@ class LikeButton extends React.Component {
     }
 
     return (
-      <button onClick={() => this.setState({ liked: true }) }>
-        Like
-      </button>
+      <Fragment>
+        <Title name="Lolloll"/>
+        <button onClick={() => this.setState({ liked: true }) }>
+          Likeaaaaa
+        </button>
+      </Fragment>
     );
   }
 }

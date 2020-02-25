@@ -167,7 +167,7 @@ footer h1 {
   width: 80vw;
   height: 50vh;
   left: 10vw;
-  background: url('../img/hanging_info.svg') center bottom no-repeat;
+  background: url('../public/img/hanging_info.svg') center bottom no-repeat;
   background-size: cover;
 
   display: flex;
@@ -332,7 +332,7 @@ footer h1 {
 
     background-image: none;
     border: 21px solid #e1ba43;
-    border-image: url("../img/pink-doily-bdr.png") 35 30 35 30 repeat repeat;
+    border-image: url("../public/img/pink-doily-bdr.png") 35 30 35 30 repeat repeat;
   }
 
   .hanging__info {
@@ -434,7 +434,7 @@ footer h1 {
   flex-direction: column;
   justify-content: center;
   padding: 8rem;
-  background: url("../img/invite-border.png") no-repeat;
+  background: url("../public/img/invite-border.png") no-repeat;
   background-size: contain;
   background-position: center;
 }
