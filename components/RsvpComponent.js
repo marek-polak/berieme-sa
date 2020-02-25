@@ -25,7 +25,7 @@ const Title = ({ name }) => {
   );
 }
 
-class LikeButton extends React.Component {
+class RSVPComponent extends React.Component {
   constructor(props) {
     super(props);
 
@@ -79,4 +79,4 @@ class LikeButton extends React.Component {
 
 const domContainer = document.querySelector('#components');
 //domContainer.style.display = 'none';
-ReactDOM.render(<LikeButton />, domContainer);
+ReactDOM.render(<RSVPComponent />, domContainer);
