@@ -62,6 +62,11 @@ class RSVPComponent extends React.Component {
 
   }
 
+  onQuestionChange = (property, value) => {
+    console.log('called onchange', property, value); 
+    this.setState({ [property]: value});
+  }
+
   componentDidMount() {
     this.retrieveData();
   }
@@ -83,51 +88,57 @@ class RSVPComponent extends React.Component {
         <Question 
           title="Prides?" 
           desc="Prosim daj nam vediet ci sa zucastnis" 
-          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
+          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]}
+          property={'attend'} 
           value={this.state['attend'] || ''}  
-          onChange={(e) => {console.log('called onchange'); this.setState({ attend: e.target.value})}} 
+          onChange={this.onQuestionChange} 
         />
 
         <Question 
           title="S partnerom/-kou?" 
           desc="Donesies svojho specialneho +1?" 
+          property={'withPartner'} 
           options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
           value={this.state['withPartner'] || ''}  
-          onChange={(e) => {console.log('called onchange'); this.setState({ withPartner: e.target.value})}} 
+          onChange={this.onQuestionChange}
         />
 
         <Question 
           title="Potrebujete ubytovanie?" 
           desc="V priestore je obmedzeny pocet izieb, dalsie su v pesej dostupnosti. Pokial sa chystate prenocovat, 
           dajte nam vediet nech vieme rezervovat kapacitu a poslat vam blizsie info (o cenach, dostupnosti, atd.)" 
+          property={'needsAccomodation'} 
           options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
           value={this.state['needsAccomodation'] || undefined}  
-          onChange={(e) => {console.log('called onchange'); this.setState({ needsAccomodation: e.target.value})}} 
+          onChange={this.onQuestionChange} 
         />
 
         <Question 
           title="Pocet deti do 2 rokov?" 
           desc="Potrebujeme vediet kolko detskych stoliciek mame zabezpecit :)" 
+          property={'kids'} 
           options={[0,1,2,3]} 
           type='slider'
           value={this.state['kids'] || undefined}  
-          onChange={(e) => {console.log('called onchange'); this.setState({ kids: e.target.value})}} 
+          onChange={this.onQuestionChange} 
         />
 
         <Question 
           title="Dietne poziadavky" 
           desc="Celiatici, intolerantni na laktozu, alergici na potraviny - dajte nam prosim vediet" 
+          property={'dietRequirements'} 
           type='text'
           value={this.state['dietRequirements'] || undefined}  
-          onChange={(e) => {console.log('called onchange'); this.setState({ dietRequirements: e.target.value})}} 
+          onChange={this.onQuestionChange} 
         />
 
         <Question 
           title="Ine poziadavky" 
           desc="Potrebujete nieco ine/specialne? Prosim, toto pole je pre Vas" 
+          property={'specialNeeds'} 
           type='text'
           value={this.state['specialNeeds'] || undefined}  
-          onChange={(e) => {console.log('called onchange'); this.setState({ specialNeeds: e.target.value})}} 
+          onChange={this.onQuestionChange} 
         />
 
         <AXAButtonReact 
