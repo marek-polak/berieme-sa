@@ -1,0 +1,14 @@
+.rsvp {
+  justify-content: space-evenly;
+  padding: 0 1rem;
+
+  h1{
+    align-self: flex-start;
+  }
+
+  &__intro{
+    flex-grow: 1;
+  }
+
+}
+

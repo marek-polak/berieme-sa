@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 
-import "./RsvpComponent.css";
+import "./RsvpComponent.scss";
 
 // mongo stitch connection
 const client = stitch.Stitch.initializeDefaultAppClient("berieme-sa-qdily");
