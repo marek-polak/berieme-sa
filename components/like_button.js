@@ -2,6 +2,7 @@
 
 const e = React.createElement;
 
+// mongo stitch connection 
 const client = stitch.Stitch.initializeDefaultAppClient('berieme-sa-qdily');
 const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas').db('wedding');
 
@@ -15,6 +16,15 @@ const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-at
       }).catch(err => {
         console.error(err)
       }); */
+
+const Title = (name) => {
+  return (
+    <ReactFragment>
+      <h1>R.S.V.P.</h1>
+      <h2>`Ahoj ${name}`</h2>
+    </ReactFragment>
+  );
+}
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -66,5 +76,5 @@ class LikeButton extends React.Component {
 
 
 const domContainer = document.querySelector('#components');
-domContainer.style.display = 'none';
+//domContainer.style.display = 'none';
 ReactDOM.render(e(LikeButton), domContainer);
