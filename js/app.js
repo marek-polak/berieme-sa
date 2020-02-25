@@ -11,3 +11,4 @@ window.$ = require('jquery');
 require('./main.js');
 require('./plugins.js');
 require('./animation.js');
+require('../components/like_button.js');

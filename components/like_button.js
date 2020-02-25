@@ -1,6 +1,5 @@
-'use strict';
-
-const e = React.createElement;
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 // mongo stitch connection 
 const client = stitch.Stitch.initializeDefaultAppClient('berieme-sa-qdily');
@@ -18,12 +17,7 @@ const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-at
       }); */
 
 const Title = (name) => {
-  return (
-    <ReactFragment>
-      <h1>R.S.V.P.</h1>
-      <h2>`Ahoj ${name}`</h2>
-    </ReactFragment>
-  );
+  return 'TEXT';
 }
 
 class LikeButton extends React.Component {
@@ -35,7 +29,7 @@ class LikeButton extends React.Component {
     this.state = { liked: false , urlParams};
   }
 
-  retrieveData = async () => {
+  retrieveData(){
     if(this.state.urlParams.has('uid')) {
       const useruid = this.state.urlParams.get('uid');
       
@@ -66,10 +60,10 @@ class LikeButton extends React.Component {
       return `Ahoj ${this.state.urlParams.get('uid')} - ${JSON.stringify(this.state.user)}`;
     }
 
-    return e(
-      'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
+    return (
+      <button onClick={() => this.setState({ liked: true }) }>
+        Like
+      </button>
     );
   }
 }
@@ -77,4 +71,4 @@ class LikeButton extends React.Component {
 
 const domContainer = document.querySelector('#components');
 //domContainer.style.display = 'none';
-ReactDOM.render(e(LikeButton), domContainer);
+ReactDOM.render(<LikeButton />, domContainer);
