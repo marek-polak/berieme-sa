@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack ./js/main.js",
+    "build": "webpack -p",
     "start-jsx-dev": "npx babel --watch components --out-dir . --presets react-app/prod"
   },
   "repository": {
