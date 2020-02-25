@@ -1,6 +1,8 @@
 import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 
+import "./RsvpComponent.css";
+
 // mongo stitch connection 
 const client = stitch.Stitch.initializeDefaultAppClient('berieme-sa-qdily');
 const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas').db('wedding');
@@ -19,8 +21,12 @@ const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-at
 const Title = ({ name }) => {
   return (
     <Fragment>
-      <h1> R.S.V.P.</h1>
-      <h3> Ahojky {name}</h3>
+      <h1 className="rsvp__title"> R.S.V.P.</h1>
+      <h3> Ahoj {name}</h3>
+      <div className='info'>
+        <p>Radi by sme Ťa/Vás pozvali po obrade k stolu. Prosím pomôž nám vyplnením formuláru nižšie - pričom platí “čím skôr, tým lepšie.”</p>
+        <p>Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.</p>
+      </div>
     </Fragment>
   );
 }
@@ -67,7 +73,7 @@ class RSVPComponent extends React.Component {
 
     return (
       <Fragment>
-        <Title name="Lolloll"/>
+        <Title name="Zdenka"/>
         <button onClick={() => this.setState({ liked: true }) }>
           Likeaaaaa
         </button>

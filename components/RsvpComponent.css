@@ -1,0 +1,7 @@
+.rsvp {
+  justify-items: start;
+}
+
+.rsvp h1{
+  align-self: flex-start;
+}
