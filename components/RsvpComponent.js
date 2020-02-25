@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import { Title } from "./Title/Title";
+import { AxaRadioReact } from './AxaRadioReact/AxaRadioReact';
+import { AXAButtonReact } from './AxaButtonReact/AxaButtonReact';
 
 import "./RsvpComponent.scss";
 
@@ -23,7 +25,7 @@ const db = client
 
 
 
-const Question = ({ title, desc, options, value, onChange }) => {
+const Question = ({ title, desc, options, value, onChange, type }) => {
   return (
     <Fragment>
       <div >
@@ -34,6 +36,19 @@ const Question = ({ title, desc, options, value, onChange }) => {
           <p>
             You have chosen {value}
           </p>
+
+          {options && options.map((item, index) => 
+           <AxaRadioReact
+              name={title}
+              label={item.text}
+              value={item.value+''} // TODO change type
+              checked={value === item.value}
+              onChange={onChange}
+              disabled={false}
+              key={item.text + index}
+              button
+            /> 
+          )}
 
         </div>
       </div>
@@ -49,7 +64,7 @@ class RSVPComponent extends React.Component {
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    this.state = { liked: false, urlParams };
+    this.state = { liked: false, urlParams, attend: false };
   }
 
   retrieveData() {
@@ -75,6 +90,10 @@ class RSVPComponent extends React.Component {
     }
   }
 
+  submitForm = () => {
+
+  }
+
   componentDidMount() {
     this.retrieveData();
   }
@@ -96,10 +115,63 @@ class RSVPComponent extends React.Component {
         <Question 
           title="Prides?" 
           desc="Prosim daj nam vediet ci sa zucastnis" 
-          options={['ano', 'nie']} 
+          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
           value={this.state['attend'] || ''}  
-          onChange={(val) => this.setState({ attend: val})} 
+          onChange={(e) => {console.log('called onchange'); this.setState({ attend: e.target.value})}} 
         />
+
+        <Question 
+          title="S partnerom/-kou?" 
+          desc="Donesies svojho specialneho +1?" 
+          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
+          value={this.state['withPartner'] || ''}  
+          onChange={(e) => {console.log('called onchange'); this.setState({ withPartner: e.target.value})}} 
+        />
+
+        <Question 
+          title="Potrebujete ubytovanie?" 
+          desc="V priestore je obmedzeny pocet izieb, dalsie su v pesej dostupnosti. Pokial sa chystate prenocovat, 
+          dajte nam vediet nech vieme rezervovat kapacitu a poslat vam blizsie info (o cenach, dostupnosti, atd.)" 
+          options={[{text: 'ano', value: true}, {text: 'nie', value:false}]} 
+          value={this.state['needsAccomodation'] || undefined}  
+          onChange={(e) => {console.log('called onchange'); this.setState({ needsAccomodation: e.target.value})}} 
+        />
+
+        <Question 
+          title="Pocet deti do 2 rokov?" 
+          desc="Potrebujeme vediet kolko detskych stoliciek mame zabezpecit :)" 
+          options={[0,1,2,3]} 
+          type='slider'
+          value={this.state['kids'] || undefined}  
+          onChange={(e) => {console.log('called onchange'); this.setState({ kids: e.target.value})}} 
+        />
+
+        <Question 
+          title="Dietne poziadavky" 
+          desc="Celiatici, intolerantni na laktozu, alergici na potraviny - dajte nam prosim vediet" 
+          type='text'
+          value={this.state['dietRequirements'] || undefined}  
+          onChange={(e) => {console.log('called onchange'); this.setState({ dietRequirements: e.target.value})}} 
+        />
+
+        <Question 
+          title="Ine poziadavky" 
+          desc="Potrebujete nieco ine/specialne? Prosim, toto pole je pre Vas" 
+          type='text'
+          value={this.state['specialNeeds'] || undefined}  
+          onChange={(e) => {console.log('called onchange'); this.setState({ specialNeeds: e.target.value})}} 
+        />
+
+        <AXAButtonReact 
+          type='submit'
+          icon='upload'
+          size='large'
+          variant={'inverted-red-tosca'}
+          motionOff
+          onClick={this.submitForm}>
+            Odoslať
+        </AXAButtonReact>
+
         <button onClick={() => this.setState({ liked: true })}>
           Likeaaaaa
         </button>
