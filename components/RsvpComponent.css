@@ -1,5 +1,10 @@
 .rsvp {
-  justify-items: start;
+  justify-content: space-evenly;
+  margin: 0 1rem;
+}
+
+.rsvp__intro{
+  flex-grow: 1;
 }
 
 .rsvp h1{
