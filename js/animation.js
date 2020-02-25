@@ -1,5 +1,5 @@
 /*jshint esversion: 6 */
-initScrollMagic = function() {
+const initScrollMagic = () => {
 
   const controller = new ScrollMagic.Controller();
 
@@ -98,7 +98,7 @@ const scrollInAnim = new TimelineMax()
 
         // figures & texts
         const max = 5;
-        for (i=1; i <= max; i++) { 
+        for (let i=1; i <= max; i++) { 
           scrollInAnim.add(figureAnimTL(i, i==max));   
         }
 
