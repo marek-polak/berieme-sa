@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 
-import { AXAButtonReact } from './AxaButtonReact/AxaButtonReact';
 import { Title } from "./Title/Title";
 import { Question } from "./Question/Question";
 
@@ -140,24 +139,15 @@ class RSVPComponent extends React.Component {
           onChange={this.onQuestionChange} 
         />
 
-        <AXAButtonReact 
-          type='submit'
-          icon='upload'
-          size='large'
-          variant={'inverted-red-tosca'}
-          motionOff
-          onClick={this.submitForm}>
-            Odoslať
-        </AXAButtonReact>
+        <button className="send-button" onClick={() => this.setState({ liked: true })}>
+          Odoslať
+        </button>
 
-        <p className="small__print">
+        <p className="small__print mb-2">
             P.S.: Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
             odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
           </p>
 
-        <button onClick={() => this.setState({ liked: true })}>
-          Likeaaaaa
-        </button>
       </Fragment>
     );
   }

@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/marek-polak/berieme-sa#readme",
   "dependencies": {
-    "@axa-ch/button": "^4.0.8",
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
     "jquery": "^3.4.1",
