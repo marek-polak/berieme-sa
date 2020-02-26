@@ -1,5 +1,11 @@
 /*jshint esversion: 6 */
-initScrollMagic = function() {
+import ScrollMagic from "scrollmagic";
+import { TweenMax, TimelineMax, Elastic, Power2, Linear } from "gsap";
+import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
+
+ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+
+const initScrollMagic = () => {
 
   const controller = new ScrollMagic.Controller();
 
@@ -35,7 +41,7 @@ const randomDelay = (minimum, maximum) => {
 
 
 
- const sunTween = new TimelineLite()
+ const sunTween = new TimelineMax()
   .to('.sun', 4, {rotation:360, repeat: -1, repeatDelay: randomDelay(0.1,2)});
 
  var $path_width = $container.width()*0.44;
@@ -44,12 +50,13 @@ const randomDelay = (minimum, maximum) => {
 
 const figureAnimTL = (counter, last) => {
   const tl =  new TimelineMax()
-    .fromTo('#fig'+counter, 0.3, {alpha: 1, rotationY:-180}, { rotationY:0 })
-    .to('#info'+counter, .3, {alpha:1, display: 'block'}, '-=0.5');
-
-  if(!last){
-    tl.to('#fig'+counter, 1, {rotationY:180}, '+=2')
-      .to('#info'+counter, .3, {alpha:0, display: 'none'}, '-=0.5')
+    .fromTo('#fig'+counter, 0.3, {alpha: 1, rotationY:-180}, { rotationY:0 });
+    
+    if(!last){
+      tl
+      .to('#info'+counter, .3, {alpha:1, display: 'block'}, '-=0.5')
+      .to('#fig'+counter, 1, {rotationY:180}, '+=2')
+      .to('#info'+counter, .3, {alpha:0, display: 'none'}, '-=0.5');
   }
 
   return tl;
@@ -98,7 +105,7 @@ const scrollInAnim = new TimelineMax()
 
         // figures & texts
         const max = 5;
-        for (i=1; i <= max; i++) { 
+        for (let i=1; i <= max; i++) { 
           scrollInAnim.add(figureAnimTL(i, i==max));   
         }
 
@@ -107,6 +114,7 @@ const scrollInAnim = new TimelineMax()
           TweenMax.from('.tree-left', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
           TweenMax.from('.tree-upper-left', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
           TweenMax.from('.tree-right', 2, { y: -window.innerHeight-($container.width()/3), ease: Elastic.easeInOut}),
+          TweenMax.to('.church-wrapper', 0, {visibility: 'visible'}),
           TweenMax.from('.church-wrapper', 2, {css:{rotationX:-90, z:100}, ease:Power2.easeOut}),
           TweenMax.to('.hanging__info', 1.3, { y: -window.innerHeight-($container.height()/3), ease: Elastic.Power2}),
           TweenMax.to($line, 2, {strokeDashoffset: 0, ease:Linear.easeNone})
