@@ -14,8 +14,7 @@ export const Title = ({ name }) => {
             vyplnením formuláru nižšie, “čím skôr, tým lepšie.”
           </p>
           <p className="small__print">
-            Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
-            odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
+            lalala
           </p>
         </div>
       </div>

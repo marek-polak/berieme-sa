@@ -1,7 +1,7 @@
 .rsvp__intro{
 
   flex-grow: 1; 
-  border-bottom: 3px solid #886f29b5;
+  border-bottom: 1px dotted #886f29b5;
   padding-bottom: 0.6em;
   margin-bottom: 0.4em;
   
@@ -12,10 +12,11 @@
 
   p {
     padding: 5px 0px;
-    text-align: justify;
+
+    @media only screen and (max-width: 35em) {
+      text-align: justify;
+    }
+
   }
 
-  .small__print{
-    font-size: 0.9em;
-  }
 }

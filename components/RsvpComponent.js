@@ -150,6 +150,11 @@ class RSVPComponent extends React.Component {
             Odoslať
         </AXAButtonReact>
 
+        <p className="small__print">
+            P.S.: Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
+            odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
+          </p>
+
         <button onClick={() => this.setState({ liked: true })}>
           Likeaaaaa
         </button>
