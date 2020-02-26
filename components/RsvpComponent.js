@@ -14,14 +14,10 @@ import "./RsvpComponent.scss";
 
 // mongo stitch connection
 const client = Stitch.initializeDefaultAppClient("berieme-sa-qdily");
-client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
-  console.log`Logged in as anonymous user with id ${user.id}`;
-});
-
+   
 const db = client
   .getServiceClient(RemoteMongoClient.factory, "mongodb-atlas")
   .db("wedding");
-
 
 const questions = [
   {
@@ -92,23 +88,35 @@ class RSVPComponent extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.retrieveData();
+  }
+
+
   retrieveData() {
     if (this.state.urlParams.has("uid")) {
       const useruid = this.state.urlParams.get("uid");
-
-      db.collection("guests")
-        .find({ uid: useruid }, { limit: 100 })
-        .asArray()
-        .then(docs => {
-          console.log("[MongoDB Stitch] Connected to Stitch");
-          console.log("Found docs", docs);
-          if (docs.length == 1) {
-            this.setState({ initialized: true, guestInfo: docs[0] });
-          }
-        })
-        .catch(err => {
-          console.error(err);
-        });
+      
+      client.auth.loginWithCredential(new AnonymousCredential())
+      .then(user => {
+        console.log`Logged in as anonymous user with id ${user.id}`;
+      })      
+      .then(() =>
+        db
+          .collection("guests")
+          .find({ uid: useruid }, { limit: 100 })
+          .asArray()
+      )
+      .then(docs => {
+        console.log("[MongoDB Stitch] Connected to Stitch");
+        console.log("Found docs", docs);
+        if (docs.length == 1) {
+          this.setState({ initialized: true, guestInfo: docs[0] });
+        }
+      })
+      .catch(err => {
+        console.error(err);
+      });
     }
   }
 
@@ -148,10 +156,7 @@ class RSVPComponent extends React.Component {
     );
   };
 
-  componentDidMount() {
-    this.retrieveData();
-  }
-
+  
   render() {
     if (!this.state.urlParams.has("uid")) {
       return null;
