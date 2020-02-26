@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { AxaRadioReact } from "../AxaRadioReact/AxaRadioReact";
+import { RadioButton } from "../RadioButton/RadioButton";
 
 import "./Question.scss";
 
@@ -13,7 +13,7 @@ export const Question = ({
   type
 }) => {
   const customHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("customHandleChange", property, e.target.value);
+    //console.log("customHandleChange", property, e.target.value);
     onChange(property, e.target.value);
   };
 
@@ -40,9 +40,10 @@ export const Question = ({
               }
 
               return (
-                <AxaRadioReact
+                <RadioButton
                   name={title}
                   label={iText}
+                  id={property+index}
                   value={iVal} // TODO change type
                   checked={value == iVal + ""}
                   onChange={customHandleChange}
