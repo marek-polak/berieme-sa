@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
+import update from "immutability-helper";
 
 import { Title } from "./Title/Title";
 import { Question } from "./Question/Question";
@@ -23,7 +24,60 @@ const db = client
         console.error(err)
       }); */
 
-
+const questions = [
+  {
+    property: "attend",
+    title: "Prídeš?",
+    description: "Prosím daj nám vedieť ci sa zúčastníš.",
+    options: [
+      { text: "áno", value: true },
+      { text: "nie", value: false }
+    ]
+  },
+  {
+    property: "withPartner",
+    title: "S partnerom/-kou?",
+    description: "Donesieš svojho špeciálneho +1?",
+    options: [
+      { text: "áno", value: true },
+      { text: "nie", value: false }
+    ]
+  },
+  {
+    property: "needsAccomodation",
+    title: "Potrebujete ubytovanie?",
+    description: `V priestore je obmedzený počet izieb, ďalšie sú 
+    v pešej dostupnosti. Pokiaľ sa chystáte prenocovať, dajte nám 
+    vedieť nech vieme rezervovať kapacitu a poslať vám bližšie info 
+    (o cenách, dostupnosti, atď.)`,
+    options: [
+      { text: "áno", value: true },
+      { text: "nie", value: false }
+    ]
+  },
+  {
+    property: "kids",
+    title: "Počet detí do dvoch rokov?",
+    description:
+      "Potrebujeme vedieť koľko detských stoličiek mame zabezpečiť :)",
+    options: [0, 1, 2, 3],
+    type: "slider"
+  },
+  {
+    property: "dietRequirements",
+    title: "Diétne požiadavky",
+    description:
+      "Celiatici, intolerantní na laktózu, alergici na potraviny - ozvite sa.",
+    type: "text"
+  },
+  {
+    property: "specialNeeds",
+    title: "Iné?",
+    description:
+      "Potrebujete niečo iné/špeciálne? Nech sa páči, toto pole je pre Vás.",
+    type: "text"
+  }
+];
 
 class RSVPComponent extends React.Component {
   constructor(props) {
@@ -31,7 +85,7 @@ class RSVPComponent extends React.Component {
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    this.state = { liked: false, urlParams, attend: false };
+    this.state = { urlParams, initialized: false, guestInfo: {} };
   }
 
   retrieveData() {
@@ -47,9 +101,11 @@ class RSVPComponent extends React.Component {
             .asArray()
         )
         .then(docs => {
-          console.log("Found docs", docs);
           console.log("[MongoDB Stitch] Connected to Stitch");
-          this.setState({ user: docs[0] });
+          console.log("Found docs", docs);
+          if(docs.length == 1) {
+            this.setState({ initialized: true, guestInfo: docs[0] });
+          }
         })
         .catch(err => {
           console.error(err);
@@ -58,96 +114,66 @@ class RSVPComponent extends React.Component {
   }
 
   submitForm = () => {
-
-  }
+    client.auth
+        .loginWithCredential(new stitch.AnonymousCredential())
+        .then(() =>
+          db.collection('guests').updateOne(
+          {uid: this.state.urlParams.get("uid")}, 
+            this.state.guestInfo, 
+            {upsert:true}
+            )
+        )
+        .catch(err => {
+          console.error(err);
+        });
+  };
 
   onQuestionChange = (property, value) => {
-    console.log('called onchange', property, value); 
-    this.setState({ [property]: value});
-  }
+    console.log("called onchange", property, value);
+    this.setState(prevState =>
+      update(prevState, { guestInfo: { [property]: { $set: value } } })
+    );
+  };
 
   componentDidMount() {
     this.retrieveData();
   }
 
   render() {
-    if (this.state.liked) {
-      return "You liked this.";
-    }
 
-    if (this.state.urlParams.has("uid")) {
-      return `Ahoj ${this.state.urlParams.get("uid")} - ${JSON.stringify(
-        this.state.user
-      )}`;
+    if(!this.state.urlParams.has("uid")){
+      return null;
+    }
+    
+    if (!this.state.initialized) {
+      return `Strange error occured. No user with id "${this.state.urlParams.get("uid")}" found.`;
     }
 
     return (
       <Fragment>
-        <Title name="Zdenka" />
-        <Question 
-          title="Prídeš?" 
-          desc="Prosím daj nám vedieť ci sa zúčastníš." 
-          options={[{text: 'áno', value: true}, {text: 'nie', value:false}]}
-          property={'attend'} 
-          value={this.state['attend'] || ''}  
-          onChange={this.onQuestionChange} 
-        />
-
-        <Question 
-          title="S partnerom/-kou?" 
-          desc="Donesieš svojho špeciálneho +1?" 
-          property={'withPartner'} 
-          options={[{text: 'áno', value: true}, {text: 'nie', value:false}]} 
-          value={this.state['withPartner'] || ''}  
+        <Title name={this.state.guestInfo.name} />
+        {questions.map(item => (
+          <Question
+          title={item.title}
+          desc={item.description}
+          key={item.property}
+          property={item.property}
+          type={item.type}
+          options={item.options}
+          value={this.state.guestInfo[item.property] || ""}
           onChange={this.onQuestionChange}
-        />
+          />
+          )
+        )} 
 
-        <Question 
-          title="Potrebujete ubytovanie?" 
-          desc="V priestore je obmedzený počet izieb, ďalšie sú v pešej dostupnosti. Pokiaľ sa chystáte prenocovať, dajte nám vedieť nech vieme rezervovať kapacitu a poslať vám bližšie info (o cenách, dostupnosti, atď.)" 
-          property={'needsAccomodation'} 
-          options={[{text: 'áno', value: true}, {text: 'nie', value:false}]} 
-          value={this.state['needsAccomodation'] || undefined}  
-          onChange={this.onQuestionChange} 
-        />
-
-        <Question 
-          title="Počet detí do dvoch rokov?" 
-          desc="Potrebujeme vedieť koľko detských stoličiek mame zabezpečiť :)" 
-          property={'kids'} 
-          options={[0,1,2,3]} 
-          type='slider'
-          value={this.state['kids'] || undefined}  
-          onChange={this.onQuestionChange} 
-        />
-
-        <Question 
-          title="Diétne požiadavky" 
-          desc="Celiatici, intolerantní na laktózu, alergici na potraviny - ozvite sa." 
-          property={'dietRequirements'} 
-          type='text'
-          value={this.state['dietRequirements'] || undefined}  
-          onChange={this.onQuestionChange} 
-        />
-
-        <Question 
-          title="Iné?" 
-          desc="Potrebujete niečo iné/špeciálne? Nech sa páči, toto pole je pre Vás." 
-          property={'specialNeeds'} 
-          type='text'
-          value={this.state['specialNeeds'] || undefined}  
-          onChange={this.onQuestionChange} 
-        />
-
-        <button className="send-button" onClick={() => this.setState({ liked: true })}>
+        <button className="send-button" onClick={this.submitForm}>
           Odoslať
         </button>
 
         <p className="small__print mb-2">
-            P.S.: Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
-            odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
-          </p>
-
+          P.S.: Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
+          odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
+        </p>
       </Fragment>
     );
   }

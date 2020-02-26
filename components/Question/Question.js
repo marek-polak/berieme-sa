@@ -27,7 +27,7 @@ export const Question = ({
 
         {type && type === "text" && (
           <div className="rsvp__question__options">
-            <textarea id={property} rows="4" cols="30" />
+            <textarea id={property} rows="4" cols="30" onBlur={customHandleChange} defaultValue={value} />
           </div>
         )}
 
