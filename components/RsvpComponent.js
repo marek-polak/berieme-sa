@@ -120,6 +120,12 @@ class RSVPComponent extends React.Component {
 
   submitForm = () => {
     this.setState({ info: "Odosielam..." });
+    
+    const {urlParams, guestInfo} = this.state;
+    // remove any property that will be used by update operators
+    if (guestInfo && guestInfo.hasOwnProperty('lastModified')) {
+      delete guestInfo['lastModified'];
+    }
 
     client.auth
       .loginWithCredential(new stitch.AnonymousCredential())
@@ -127,10 +133,10 @@ class RSVPComponent extends React.Component {
         db
           .collection("guests")
           .updateOne(
-            { uid: this.state.urlParams.get("uid") },
+            { uid: urlParams.get("uid") },
             {
+              $set: { ...guestInfo, responded: true },
               $currentDate: { lastModified: true },
-              $set: { ...this.state.guestInfo, responded: true },
             }
           )
       )
