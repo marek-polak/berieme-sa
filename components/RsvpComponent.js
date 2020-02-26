@@ -85,7 +85,12 @@ class RSVPComponent extends React.Component {
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    this.state = { urlParams, initialized: false, guestInfo: {} };
+    this.state = {
+      urlParams,
+      initialized: false,
+      guestInfo: {},
+      info: undefined
+    };
   }
 
   retrieveData() {
@@ -103,7 +108,7 @@ class RSVPComponent extends React.Component {
         .then(docs => {
           console.log("[MongoDB Stitch] Connected to Stitch");
           console.log("Found docs", docs);
-          if(docs.length == 1) {
+          if (docs.length == 1) {
             this.setState({ initialized: true, guestInfo: docs[0] });
           }
         })
@@ -114,18 +119,30 @@ class RSVPComponent extends React.Component {
   }
 
   submitForm = () => {
+    this.setState({ info: "Odosielam..." });
+
     client.auth
-        .loginWithCredential(new stitch.AnonymousCredential())
-        .then(() =>
-          db.collection('guests').updateOne(
-          {uid: this.state.urlParams.get("uid")}, 
-            this.state.guestInfo, 
-            {upsert:true}
-            )
-        )
-        .catch(err => {
-          console.error(err);
-        });
+      .loginWithCredential(new stitch.AnonymousCredential())
+      .then(() =>
+        db
+          .collection("guests")
+          .updateOne(
+            { uid: this.state.urlParams.get("uid") },
+            {
+              $currentDate: { lastModified: true },
+              $set: { ...this.state.guestInfo, responded: true },
+            }
+          )
+      )
+      .then(result => {
+        console.log(`${result.matchedCount} document(s) matched the query criteria.`);
+        console.log(`${result.modifiedCount} document(s) was/were updated.`);
+        this.setState({ info: "Ďakujeme, údaje sa úspešne odoslali." });
+        }
+      )
+      .catch(err => {
+        console.error(err);
+      });
   };
 
   onQuestionChange = (property, value) => {
@@ -140,13 +157,14 @@ class RSVPComponent extends React.Component {
   }
 
   render() {
-
-    if(!this.state.urlParams.has("uid")){
+    if (!this.state.urlParams.has("uid")) {
       return null;
     }
-    
+
     if (!this.state.initialized) {
-      return `Strange error occured. No user with id "${this.state.urlParams.get("uid")}" found.`;
+      return `Strange error occured. No user with id "${this.state.urlParams.get(
+        "uid"
+      )}" found.`;
     }
 
     return (
@@ -154,21 +172,24 @@ class RSVPComponent extends React.Component {
         <Title name={this.state.guestInfo.name} />
         {questions.map(item => (
           <Question
-          title={item.title}
-          desc={item.description}
-          key={item.property}
-          property={item.property}
-          type={item.type}
-          options={item.options}
-          value={this.state.guestInfo[item.property] || ""}
-          onChange={this.onQuestionChange}
+            title={item.title}
+            desc={item.description}
+            key={item.property}
+            property={item.property}
+            type={item.type}
+            options={item.options}
+            value={this.state.guestInfo[item.property] || ""}
+            onChange={this.onQuestionChange}
           />
-          )
-        )} 
+        ))}
 
-        <button className="send-button" onClick={this.submitForm}>
-          Odoslať
-        </button>
+        <div className="send-info">
+          {this.state.info && <p>{this.state.info}</p>}
+
+          <button className="send-button" onClick={this.submitForm}>
+            Odoslať
+          </button>
+        </div>
 
         <p className="small__print mb-2">
           P.S.: Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu

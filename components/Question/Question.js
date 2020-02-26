@@ -12,7 +12,7 @@ export const Question = ({
   onChange,
   type
 }) => {
-  const customHandleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const customHandleChange = (e) => {
     //console.log("customHandleChange", property, e.target.value);
     onChange(property, e.target.value);
   };
