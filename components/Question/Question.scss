@@ -6,11 +6,20 @@
   width: 80vw;
   margin: 1em 0;
 
+  @media only screen and (max-width: 35em) {
+    flex-direction: column;
+  }
+
   &__wrapper{
     flex-direction: column;
     display: flex;
     flex-grow: 1;
     align-items: flex-start;
+
+    @media only screen and (max-width: 35em) {
+      align-items: center;
+      padding-bottom: 0.5em;
+    }
   }
 
   &__title{
@@ -22,6 +31,10 @@
   &__desc{
     text-align: start;
     font-size: 0.9em;
+
+    @media only screen and (max-width: 35em) {
+      text-align: justify;
+    }
   }
 
   &__options{
@@ -29,6 +42,20 @@
     display: flex;
     flex-direction: row;
     
+    @media only screen and (max-width: 35em) {
+      textarea{
+        width: 90vw;
+      }
+    }
+
+  }
+
+  axa-radio[button] .a-radio__wrapper:hover,
+  axa-radio:hover:not([disabled]),
+  axa-radio[button][checked] .a-radio__wrapper,
+  axa-radio[button] .a-radio__input:checked ~ .a-radio__content{
+    color: #44391a;
+    border-color: #44391a;
   }
 
 }

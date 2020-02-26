@@ -13,7 +13,7 @@ export const Title = ({ name }) => {
             Radi by sme Ťa/Vás pozvali po obrade k stolu. Pomôž nám
             vyplnením formuláru nižšie, “čím skôr, tým lepšie.”
           </p>
-          <p class="small__print">
+          <p className="small__print">
             Formulár po odoslaní možeš kedykoľvek upraviť tým, že ho znovu
             odošleš /ak je to nutné, kľudne tak sprav, dozvieme sa o tom/.
           </p>
