@@ -1,6 +1,11 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import update from "immutability-helper";
+import {
+  Stitch,
+  AnonymousCredential,
+  RemoteMongoClient
+} from "mongodb-stitch-browser-sdk";
 
 import { Title } from "./Title/Title";
 import { Question } from "./Question/Question";
@@ -8,9 +13,13 @@ import { Question } from "./Question/Question";
 import "./RsvpComponent.scss";
 
 // mongo stitch connection
-const client = stitch.Stitch.initializeDefaultAppClient("berieme-sa-qdily");
+const client = Stitch.initializeDefaultAppClient("berieme-sa-qdily");
+client.auth.loginWithCredential(new AnonymousCredential()).then(user => {
+  console.log`Logged in as anonymous user with id ${user.id}`;
+});
+
 const db = client
-  .getServiceClient(stitch.RemoteMongoClient.factory, "mongodb-atlas")
+  .getServiceClient(RemoteMongoClient.factory, "mongodb-atlas")
   .db("wedding");
 
 /*       client.auth.loginWithCredential(new stitch.AnonymousCredential()).then(user =>
@@ -97,14 +106,9 @@ class RSVPComponent extends React.Component {
     if (this.state.urlParams.has("uid")) {
       const useruid = this.state.urlParams.get("uid");
 
-      client.auth
-        .loginWithCredential(new stitch.AnonymousCredential())
-        .then(() =>
-          db
-            .collection("guests")
-            .find({ uid: useruid }, { limit: 100 })
-            .asArray()
-        )
+      db.collection("guests")
+        .find({ uid: useruid }, { limit: 100 })
+        .asArray()
         .then(docs => {
           console.log("[MongoDB Stitch] Connected to Stitch");
           console.log("Found docs", docs);
@@ -120,32 +124,28 @@ class RSVPComponent extends React.Component {
 
   submitForm = () => {
     this.setState({ info: "Odosielam..." });
-    
-    const {urlParams, guestInfo} = this.state;
+
+    const { urlParams, guestInfo } = this.state;
     // remove any property that will be used by update operators
-    if (guestInfo && guestInfo.hasOwnProperty('lastModified')) {
-      delete guestInfo['lastModified'];
+    if (guestInfo && guestInfo.hasOwnProperty("lastModified")) {
+      delete guestInfo["lastModified"];
     }
 
-    client.auth
-      .loginWithCredential(new stitch.AnonymousCredential())
-      .then(() =>
-        db
-          .collection("guests")
-          .updateOne(
-            { uid: urlParams.get("uid") },
-            {
-              $set: { ...guestInfo, responded: true },
-              $currentDate: { lastModified: true },
-            }
-          )
-      )
-      .then(result => {
-        console.log(`${result.matchedCount} document(s) matched the query criteria.`);
-        console.log(`${result.modifiedCount} document(s) was/were updated.`);
-        this.setState({ info: "Ďakujeme, údaje sa úspešne odoslali." });
+    db.collection("guests")
+      .updateOne(
+        { uid: urlParams.get("uid") },
+        {
+          $set: { ...guestInfo, responded: true },
+          $currentDate: { lastModified: true }
         }
       )
+      .then(result => {
+        console.log(
+          `${result.matchedCount} document(s) matched the query criteria.`
+        );
+        console.log(`${result.modifiedCount} document(s) was/were updated.`);
+        this.setState({ info: "Ďakujeme, údaje sa úspešne odoslali." });
+      })
       .catch(err => {
         console.error(err);
       });
