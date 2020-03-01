@@ -23,7 +23,7 @@ const questions = [
   {
     property: "attend",
     title: "Prídeš?",
-    description: "Prosím daj nám vedieť ci sa zúčastníš.",
+    description: "Prosím daj nám vedieť či sa zúčastníš.",
     options: [
       { text: "áno", value: true },
       { text: "nie", value: false }

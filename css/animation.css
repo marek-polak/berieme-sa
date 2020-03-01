@@ -492,6 +492,10 @@ footer h1 {
   flex-direction: column;
 }
 
+.rsvp {
+  visibility: hidden;
+}
+
 .credits {
   width: 100vw;
   background-color: #44391a;
