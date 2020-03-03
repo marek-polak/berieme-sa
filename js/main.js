@@ -32,3 +32,7 @@ $(function() {
     $('footer').css('display', 'none');
   }
 });
+
+$(window).on("load",function(){
+  $("#content--preloader").fadeOut("slow");
+});
