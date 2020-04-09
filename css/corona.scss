@@ -1,0 +1,36 @@
+.update__corona {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 80vw;
+  background-color: #44391a;
+  color: white;
+  margin: 1em 0;
+  padding: 1em;
+
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  @media only screen and (max-width: 35em) {
+    font-size: 80%;
+  }
+
+  &--title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    #lottie-bg {
+      width: 20%;
+      height: 10vh;
+      padding-right: 5px;
+    }
+  }
+
+  &--text {
+    p {
+      margin-top: 0.6em;
+      line-height: 1.2;
+    }
+  }
+}
